@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+/* Les deux syntaxes qui suivent ont l'air d'être interchangeables (mais ici elles ne servent à rien) :
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */

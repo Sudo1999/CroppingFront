@@ -1,0 +1,64 @@
+<!-- <p>rectangle-form works!</p> -->
+
+<div  class="container">
+    <form (ngSubmit)="onSubmit()" #rectangleForm="ngForm" style="width:75%;">
+    <!-- The ngSubmit directive calls the onSubmit() method when the form is submitted. -->
+    <!-- The template variable #rectangleForm makes Angular adds a NgForm directive,
+        which allows us to keep track of the form as a whole. -->
+    <!-- This NgForm directive holds the controls that we created for the form elements with an ngModel directive
+        and a name attribute. The ngModel directive gives us two-way data binding functionality between
+        the form controls and the client-side domain model, the Rectangle class. This means that data entered
+        in the form input fields will flow to the model, and the other way around.
+        Additionally, ngModel allows us to keep track of the state of each form control, and perform
+        client-side validation by adding different CSS classes and DOM properties to each control. -->
+
+        <div>
+            <label for="upX">UpX</label>
+            <input type="text" [(ngModel)]="rectangle.upX" 
+            class="form-control" 
+            id="upX" 
+            name="upX" 
+            placeholder="Enter the upX data"
+            required #upX="ngModel">
+        </div>
+        <div [hidden]="!upX.pristine" class="alert alert-danger small">UpX is required</div>
+        <!-- pristine = valeur booléenne indiquant si le "control" a été modifié -->
+
+        <div>
+            <label for="upY">UpY</label>
+            <input type="text" [(ngModel)]="rectangle.upY" 
+            class="form-control" 
+            id="upY" 
+            name="upY" 
+            placeholder="Enter the upY data"
+            required #upY="ngModel">
+        </div>
+        <div [hidden]="!upY.pristine" class="alert alert-danger small">UpY is required</div>
+        
+        <div>
+            <label for="width">Width</label>
+            <input type="text" [(ngModel)]="rectangle.width" 
+            class="form-control" 
+            id="width" 
+            name="width" 
+            placeholder="Enter the width data"
+            required #width="ngModel">
+        </div>
+        <div [hidden]="!width.pristine" class="alert alert-danger small">Width is required</div>
+        
+        <div>
+            <label for="height">Height</label>
+            <input type="text" [(ngModel)]="rectangle.height" 
+            class="form-control" 
+            id="height" 
+            name="height" 
+            placeholder="Enter the height data"
+            required #height="ngModel">
+        </div>
+        <div [hidden]="!height.pristine" class="alert alert-danger small">Height is required</div>
+        
+        <br />
+        <button type="submit" [disabled]="!rectangleForm.form.valid" class="btn btn-secondary">Submit</button>
+        <br /><br />
+    </form>
+</div>

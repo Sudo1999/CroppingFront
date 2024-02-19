@@ -1,0 +1,29 @@
+<!-- <p>rectangle-list works!</p> -->
+
+<div class="container">
+  <div>
+    <a routerLink="/addrectangle" class="btn btn-info btn-sm">Ajouter un rectangle</a>
+  </div>
+  <br />
+  
+  <table class="table table-bordered table-striped" style="width:75%;">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>UpX</th>
+        <th>UpY</th>
+        <th>Width</th>
+        <th>Height</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rectangle of rectangles">
+        <td></td>
+        <td>{{ rectangle.upX }}</td>
+        <td>{{ rectangle.upY }}</td>
+        <td>{{ rectangle.width }}</td>
+        <td>{{ rectangle.height }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

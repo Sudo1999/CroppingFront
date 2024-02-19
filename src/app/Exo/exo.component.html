@@ -1,0 +1,28 @@
+<!-- frame.component.html -->
+<!-- Formulaire pour permettre à l'utilisateur d'uploader un fichier image et de définir le rectangle -->
+
+<div>
+    <input type="file" (change)="fileChange($event)">
+    <div>
+      <label>X:</label>
+      <input type="number" [(ngModel)]="exo.x">
+    </div>
+    <div>
+      <label>Y:</label>
+      <input type="number" [(ngModel)]="exo.y">
+    </div>
+    <div>
+      <label>Width:</label>
+      <input type="number" [(ngModel)]="exo.width">
+    </div>
+    <div>
+      <label>Height:</label>
+      <input type="number" [(ngModel)]="exo.height">
+    </div>
+    <button (click)="processExo()">Process Exo</button>
+  </div>
+  
+  <div *ngIf="processedExo">
+    <img [src]="getExoUrl()" alt="Processed Exo">
+  </div>
+  
