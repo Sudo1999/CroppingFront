@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FrameService } from '../../../Service/frame.service';
 import { Frame } from '../../frame';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-frame-list',
@@ -12,9 +12,11 @@ export class FrameListComponent implements OnInit {
 
   public frames: Frame[];
   public framepaths: String[];
+  public fileUrl!: string;
 
   constructor (
     private router: Router,
+    private route: ActivatedRoute,
     private frameService: FrameService ) {
       this.frames = new Array<Frame>;
       this.framepaths = new Array<String>;
@@ -31,9 +33,9 @@ export class FrameListComponent implements OnInit {
     });
   }
 
-  public onClick(frame: Frame): void {
-    // End-point du FrameController du back => @GetMapping("/file/{filename:.+}")    
-    this.router.navigate(['/', 'api', 'file', frame.fullname]);
+  public onFrameClick(frame: Frame): void {
+    // End-point du FrameController du back => @GetMapping("/file/{filename:.+}")
     //this.router.navigateByUrl('api/file/' + frame.fullname);
+    this.router.navigate(['/', 'api', 'file', frame.fullname]);
   }
 }

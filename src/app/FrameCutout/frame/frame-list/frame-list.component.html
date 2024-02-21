@@ -1,21 +1,17 @@
 <!-- <p>frame-list works!</p> -->
 
 <div class="container">
-  <ul>
-    <li class="list-inline-item">
-        <input id="file" type="file" name="file" class="btn btn-primary btn-sm" />
-        <!--(The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadFile method)-->
-    </li>
-    <li class="list-inline-item">
-        <button class="btn btn-primary btn-sm">Envoyer</button>
-    </li>
-  </ul>
-  <p>Here are the available images :</p>
-  <ul>
-    <li *ngFor="let frame of frames">
-      <a routerLink="/api/file/{{ frame.fullname }}">
-          <span (click)="onClick(frame)">{{ frame.fullname }}</span>
-      </a> 
-    </li>
-  </ul>
+  
+  <app-upload></app-upload>
+  
+  <div style="margin-left:3%;">
+    <p>Images disponibles :</p>
+    <ul>
+      <li *ngFor="let frame of frames">
+        <a routerLink="/api/file/{{ frame.fullname }}">
+            <span (click)="onFrameClick(frame)">{{ frame.fullname }}</span>
+        </a> 
+      </li>
+    </ul>
+  </div>
 </div>

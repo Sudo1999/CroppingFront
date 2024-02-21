@@ -15,7 +15,7 @@ export class AppComponent {
   public loading = false;
 
   constructor() {
-    this.title = 'Spring Boot - Angular Cropping Application';
+    this.title = 'Application Spring Boot - Angular';
   }
 
   fileChangeEvent(event: any): void {

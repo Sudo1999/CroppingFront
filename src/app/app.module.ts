@@ -1,6 +1,9 @@
 import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { MatToolbarModule } from '@angular/material/toolbar';
+//import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -14,6 +17,7 @@ import { RectangleService } from './Service/rectangle.service';
 import { FrameListComponent } from './FrameCutout/frame/frame-list/frame-list.component';
 import { FrameGetComponent } from './FrameCutout/frame/frame-get/frame-get.component';
 import { FrameService } from './Service/frame.service';
+import { UploadComponent } from './FrameCutout/file/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -23,17 +27,22 @@ import { FrameService } from './Service/frame.service';
     RectangleListComponent,
     RectangleFormComponent,
     FrameListComponent,
-    FrameGetComponent
+    FrameGetComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
+    //MatToolbarModule,
+    //MatButtonModule,
     HttpClientModule,
     ImageCropperModule,
     FileUploadModule,
     AppRoutingModule
   ],
-  // Le provider est une méthode pour fournir une instance d'une classe aux composantes de l'application
+  // Le provider est une méthode qui fournit une instance de classe aux composantes de l'application
   providers: [
     RectangleService,
     FrameService

@@ -1,0 +1,67 @@
+<!-- <p>upload works!</p> -->
+
+<!-- <head> -->
+  <!-- <meta http-equiv="refresh" content="1; URL=http://localhost:8080/api/file/Photo-test.jpg"> -->
+  <!-- Avec cette balise, l'appel du end-point /api, routé par l'intermédiaire du app-routing.module.ts
+  vers le FrameGetComponent (dans lequel se trouvait initialement cette balise <meta>), provoque une redirection
+  vers l'URL indiqué, http://localhost:8080/api/file/Photo-test.jpg, au bout d'une seconde. -->
+<!-- </head> -->
+
+<!-- Upload crop image Springboot Ajax.docx -->
+<form>
+  <ul>
+    <li class="list-inline-item">
+      <input id="file" name="file" type="file" class="btn btn-primary btn-sm" />
+      <!--(The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadfile method)-->
+    </li>
+    <li class="list-inline-item">
+      <!-- <button class="btn btn-primary btn-sm">Envoyer</button> -->
+      <button class="btn btn-primary btn-sm" (click)="onFileClick()">Envoyer</button>
+    </li>
+  </ul>
+</form>
+
+  <!-- Issu de l'article Télécharger une image avec Angular.docx -->
+  <!-- <div class="wrapper">
+      <h2>Angular Image Upload Demo</h2>
+      <div class="file-upload">
+          <input
+              type="file"
+              name="image"
+              ng2FileSelect
+              [uploader]="uploader"
+              accept="image/x-png,image/gif,image/jpeg" />
+          <button
+              type="button"
+              (click)="uploader.uploadAll()"
+              [disabled]="!uploader.getNotUploadedItems().length"> Upload </button>
+      </div>
+  </div> -->
+
+  <!-- Issu de l'article https://onecodex.ch/blog/createacustomstyledfileuploadinangular9 :
+  Using the input element is the only possibility to upload files from your browser.
+  First we'll create a form containing the drop zone and a file picker button. -->
+  <!-- <h1>Basic HTML File Upload</h1>
+  <input type="file">
+  <div id="direct_upload"
+      ng2FileDrop
+      [uploader]="uploader"
+      (fileOver)="fileOverBase($event)"
+      [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }">
+      <h1>Upload File</h1>
+      <p>Please select an image. You can also drag and drop an image file into the dashed area.</p>
+      <form [ngFormOptions]='imageForm'>      // [formGroup]="imageForm">
+          <div>
+              <button type="button" mat-raised-button (click)="fileInput.click()">
+              Choose File
+              </button>
+              <input
+              hidden
+              [uploader]="uploader"
+              (change)="fileInput.value = ''"
+              ng2FileSelect
+              #fileInput type="file"
+              id="file" multiple />
+          </div>
+      </form>
+  </div> -->

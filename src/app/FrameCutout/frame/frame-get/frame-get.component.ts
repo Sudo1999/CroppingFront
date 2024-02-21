@@ -16,17 +16,6 @@ export class FrameGetComponent implements OnInit {
   public frame!: Frame;
   public fileUrl!: string;
 
-  // Pour l'article Télécharger une image en Angular.docx
-  // percentDone: number = 0;
-  // uploadSuccess: boolean = false;
-
-  // Pour l'article Télécharger une image avec Angular.docx :
-  // baseUrl = "http://localhost:8080/api/file/";
-  // public uploader: FileUploader = new FileUploader({    // options: FileUploaderOptions
-  //   url: this.baseUrl,
-  //   itemAlias: 'image'
-  // });
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -35,8 +24,7 @@ export class FrameGetComponent implements OnInit {
   
   ngOnInit(): void {
     // On doit s'adresser au end-point du FrameController du back => @GetMapping("/file/{filename:.+}")
-    // Routing => path: 'api/file/:fullname',
-    //            component: FrameGetComponent }
+    // Routing => path: 'api/file/:fullname', component: FrameGetComponent
 
     this.route.params.subscribe((routeParams: Params) => {
       console.log('Route params =>', JSON.stringify(routeParams));  // => {"fullname":"Photo-test.jpg"}
