@@ -18,6 +18,8 @@ export class AppComponent {
     this.title = 'Application Spring Boot - Angular';
   }
 
+  /* Issu de Crop Image Before Upload.docx */
+
   fileChangeEvent(event: any): void {
     this.loading = true;
     this.imageChangedEvent = event;

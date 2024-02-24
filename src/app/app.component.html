@@ -3,10 +3,11 @@
   
 <div class="container">
   <br />
-  <h2 style="margin:auto; text-align:center;">{{ title }}</h2>
+  <h1 style="margin:auto; text-align:center;">{{ title }}</h1>
 
   <app-frame></app-frame>
 
+  <!-- Issu de Crop Image Before Upload.docx -->
   <ng-container *ngIf="false">
     <div class="card-body">
       <input type="file" (change)="fileChangeEvent($event)" />

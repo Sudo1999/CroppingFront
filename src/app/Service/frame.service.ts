@@ -65,7 +65,7 @@ export class FrameService {
   }
 
   //
-  //  ====  Exercices précédents  ====
+  //  ====  Exercices précédents  (Télécharger une image en Angular.docx) ====
   //
 
   // Téléchargement de base pour plusieurs images dans Angular

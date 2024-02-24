@@ -6,13 +6,13 @@ import { Cutout } from '../cutout';
 
 @Component({
   selector: 'app-frame',
-  template: `
-    <input type="file" accept=".jpg,.png" class="button" (change)="uploadImages($event.target.files)" />
-    <p> Upload Percent: {{ percentDone }}% </p>
-    <br />
-    <ng-container *ngIf="uploadSuccess" class="success">
-      <p class="success">Upload Successful</p>
-    </ng-container>`,
+  // template: `
+  //   <input type="file" accept=".jpg,.png" class="button" (change)="uploadImages($event.target.files)" />
+  //   <p> Upload Percent: {{ percentDone }}% </p>
+  //   <br />
+  //   <ng-container *ngIf="uploadSuccess" class="success">
+  //     <p class="success">Upload Successful</p>
+  //   </ng-container>`,
   templateUrl: './frame.component.html',
   styleUrl: './frame.component.css'
 })
@@ -29,10 +29,6 @@ export class FrameComponent {
 
   fileChange(event: any) {
     this.file = event.target.files[0];
-  }
-
-  uploadImages(files: File[]) {
-    this.frameService.uploadImageAndProgress(files);
   }
 
   processFrame() {
