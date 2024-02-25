@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { ToastrModule } from 'ngx-toastr';
+//import { ToastrModule } from 'ngx-toastr';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +42,7 @@ import { CropComponent } from './file/crop/crop.component';
     ReactiveFormsModule,
     HttpClientModule,
     ImageCropperModule,
-    ToastrModule.forRoot(),
+    //ToastrModule.forRoot(),
     FileUploadModule,
     AppRoutingModule
   ],
