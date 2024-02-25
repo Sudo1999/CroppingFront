@@ -1,3 +1,4 @@
+
 /* ng g class rectangle */
 export class Rectangle {
     upX!: number;

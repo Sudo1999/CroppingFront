@@ -1,0 +1,16 @@
+p {
+  padding-left: 5px;
+}
+.button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  width: 90%;
+  margin-bottom: 15px;
+}
+.success {
+  padding: 10px;
+  background-color: lightgreen;
+  color: white;
+  text-align: center;
+}

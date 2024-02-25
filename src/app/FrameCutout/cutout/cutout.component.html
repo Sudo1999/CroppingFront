@@ -1,0 +1,30 @@
+<!-- cutout.component.html -->
+<!-- Formulaire pour permettre à l'utilisateur d'uploader un fichier image et de définir le rectangle -->
+
+<!-- ////  ==== Méthode /process ====  //// -->
+
+<div>
+    <input type="file" (change)="fileChange($event)">
+    <div>
+      <label>X:</label>
+      <input type="number" [(ngModel)]="cutout.upX">
+    </div>
+    <div>
+      <label>Y:</label>
+      <input type="number" [(ngModel)]="cutout.upY">
+    </div>
+    <div>
+      <label>Width:</label>
+      <input type="number" [(ngModel)]="cutout.width">
+    </div>
+    <div>
+      <label>Height:</label>
+      <input type="number" [(ngModel)]="cutout.height">
+    </div>
+    <button (click)="processCutout()">Process cutout</button>
+  </div>
+  
+  <div *ngIf="processedCutout">
+    <img [src]="getCutoutUrl()" alt="Processed Cutout">
+  </div>
+  

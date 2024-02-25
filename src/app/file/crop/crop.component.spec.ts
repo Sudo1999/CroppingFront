@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FrameComponent } from './frame.component';
+import { CropComponent } from './crop.component';
 
-describe('FrameComponent', () => {
-  let component: FrameComponent;
-  let fixture: ComponentFixture<FrameComponent>;
+describe('CropComponent', () => {
+  let component: CropComponent;
+  let fixture: ComponentFixture<CropComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FrameComponent]
+      declarations: [CropComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FrameComponent);
+    fixture = TestBed.createComponent(CropComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

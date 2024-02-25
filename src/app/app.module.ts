@@ -6,39 +6,43 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ToastrModule } from 'ngx-toastr';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExoComponent } from './Exo/exo.component';
-import { FrameComponent } from './FrameCutout/frame/frame.component';
-import { RectangleListComponent } from './FrameCutout/rectangle/rectangle-list/rectangle-list.component';
-import { RectangleFormComponent } from './FrameCutout/rectangle/rectangle-form/rectangle-form.component';
-import { RectangleService } from './Service/rectangle.service';
-import { FrameListComponent } from './FrameCutout/frame/frame-list/frame-list.component';
-import { FrameGetComponent } from './FrameCutout/frame/frame-get/frame-get.component';
-import { FrameService } from './Service/frame.service';
-import { UploadComponent } from './FrameCutout/file/upload/upload.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { RectangleListComponent } from './framecutout/rectangle/rectangle-list/rectangle-list.component';
+import { RectangleFormComponent } from './framecutout/rectangle/rectangle-form/rectangle-form.component';
+import { RectangleService } from './services/rectangle.service';
+import { FrameListComponent } from './framecutout/frame/frame-list/frame-list.component';
+import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
+import { FrameService } from './services/frame.service';
+import { CutoutComponent } from './framecutout/cutout/cutout.component';
+import { UploadComponent } from './file/upload/upload.component';
+import { CropComponent } from './file/crop/crop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExoComponent,
-    FrameComponent,
+    AccueilComponent,
     RectangleListComponent,
     RectangleFormComponent,
     FrameListComponent,
     FrameGetComponent,
-    UploadComponent
+    CutoutComponent,
+    UploadComponent,
+    CropComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
     //MatToolbarModule,
     //MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ImageCropperModule,
+    ToastrModule.forRoot(),
     FileUploadModule,
     AppRoutingModule
   ],

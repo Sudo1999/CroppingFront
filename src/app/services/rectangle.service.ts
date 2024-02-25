@@ -1,10 +1,8 @@
 /* ng g service rectangle */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Rectangle } from '../FrameCutout/rectangle';
+import { Rectangle } from '../framecutout/rectangle';
 import { Observable } from 'rxjs';
-
-// Le service est utilisé pour effectuer des appels HTTP au back-end.
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +12,7 @@ export class RectangleService {
   private rectanglesUrl!: string;
 
   constructor(private http: HttpClient) {
-    this.rectanglesUrl = 'http://localhost:8080/rectangles';  // L'adresse correspond au end-point exposé par le back
+    this.rectanglesUrl = 'http://localhost:8080/rectangles';
   }
 
   public findAll(): Observable<Rectangle[]> {

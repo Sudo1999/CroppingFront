@@ -1,5 +1,12 @@
 <!-- <p>frame-get works!</p> -->
 
+<!-- <head> -->
+  <!-- <meta http-equiv="refresh" content="1; URL=http://localhost:8080/api/file/Photo-test.jpg"> -->
+  <!-- Avec cette balise, l'appel du end-point /api, lorsqu'il était routé par le app-routing.module.ts
+    vers le FrameGetComponent, provoquait au bout d'une seconde une redirection vers l'URL indiqué,
+    http://localhost:8080/api/file/Photo-test.jpg. -->
+<!-- </head> -->
+
 <div class="container">
   <p>Vous serez redirigé vers une image dans 1 seconde... ou pas !</p>
   <img style="max-width:75%;" [src]="fileUrl">

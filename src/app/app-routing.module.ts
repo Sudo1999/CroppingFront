@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FrameComponent } from './FrameCutout/frame/frame.component';
 import { AppComponent } from './app.component';
-import { RectangleListComponent } from './FrameCutout/rectangle/rectangle-list/rectangle-list.component';
-import { RectangleFormComponent } from './FrameCutout/rectangle/rectangle-form/rectangle-form.component';
-import { FrameGetComponent } from './FrameCutout/frame/frame-get/frame-get.component';
-import { FrameListComponent } from './FrameCutout/frame/frame-list/frame-list.component';
-import { UploadComponent } from './FrameCutout/file/upload/upload.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { RectangleListComponent } from './framecutout/rectangle/rectangle-list/rectangle-list.component';
+import { RectangleFormComponent } from './framecutout/rectangle/rectangle-form/rectangle-form.component';
+import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
+import { FrameListComponent } from './framecutout/frame/frame-list/frame-list.component';
+import { UploadComponent } from './file/upload/upload.component';
+import { CropComponent } from './file/crop/crop.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(AppRoutingModule.routes)],
@@ -21,7 +22,7 @@ export class AppRoutingModule {
       pathMatch: 'full' },   // Important pour que toute l'adresse soit lue
     // {
     //   path: 'home',
-    //   component: FrameComponent },
+    //   component: AccueilComponent },
     {
       path: 'rectangles',
       component: RectangleListComponent },
@@ -29,13 +30,13 @@ export class AppRoutingModule {
       path: 'addrectangle',
       component: RectangleFormComponent },
     {
+      path: 'cropping',
+      component: CropComponent },
+    {
       path: 'api',
       component: FrameListComponent },
     {
       path: 'api/file/:fullname',
-      component: FrameGetComponent },
-    // {
-    //   path: 'api/upload',
-    //   component: UploadComponent }
+      component: FrameGetComponent }
   ]
 }

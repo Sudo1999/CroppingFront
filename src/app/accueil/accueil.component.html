@@ -1,0 +1,27 @@
+<!-- <p>accueil works!</p> -->
+<!-- accueil.component.html va se loger dans la balise <app-accueil></app-accueil> située dans app.component.html -->
+<!-- On arrive ici avec l'adresse http://localhost:4200/ -->
+
+<div class="container">
+  <br />
+  <ul style="margin:auto; text-align:center;">
+
+    <li class="list-inline-item">
+      <a routerLink="/api" class="btn btn-info btn-sm">Liste des images</a>
+      <!-- Angular uses the routerLink attribute for routing requests through its routing module.
+        The module will dispatch a request to the /api path to its specific component.
+        In each case, the HTML template associated with the matching component will be rendered
+        within the <router-outlet></router-outlet> placeholder of the app.component.html. -->
+    </li>
+
+    <li class="list-inline-item">
+      <a routerLink="/cropping" class="btn btn-info btn-sm">Cropping</a>
+    </li>
+
+    <li class="list-inline-item">
+      <a routerLink="/rectangles" class="btn btn-info btn-sm">Liste des rectangles</a>
+    </li>
+    
+  </ul>
+  <br />
+</div>

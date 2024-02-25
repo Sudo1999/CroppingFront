@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map, take } from 'rxjs';
-import { Frame } from '../FrameCutout/frame';
+import { Frame } from '../framecutout/frame';
 import { ResourceLoader } from '@angular/compiler';
-import { Cutout } from '../FrameCutout/cutout';
+import { Cutout } from '../framecutout/cutout';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class FrameService {
     return this.http.get<String[]>(this.framesUrl);
   }
    
-  /* Le problème à résoudre : le back m'envoie un ResponseEntity<Resource> que je ne sais pas récupérer. */
+  /* Le problème à résoudre : récupérer le ResponseEntity<Resource> que le back envoie. */
   public getFrame(fullname: string): Observable<String> {
     return this.http.get<String>(this.frameGet + fullname);
   }
@@ -65,7 +65,9 @@ export class FrameService {
   }
 
   //
-  //  ====  Exercices précédents  (Télécharger une image en Angular.docx) ====
+  //  ====  Télécharger une image en Angular.docx  ====
+  //  ======    (Voir le upload.component)    ======
+  // (Voir aussi https://stackblitz.com/edit/angular-file-upload-gcbfhf?file=app/app.component.ts)
   //
 
   // Téléchargement de base pour plusieurs images dans Angular
@@ -103,36 +105,21 @@ export class FrameService {
       });
   }
 
-  /* // Téléchargement d'une seule image avec une barre de progression
+  // Téléchargement d'une seule image avec une barre de progression
   // => This will fail since file.io dosen't accept this type of upload
   // but it is still possible to upload a file with this style
-  public uploadSingleImageAndProgress(file: File) {
-    this.http.post('https://file.io', file, {
-        reportProgress: true,
-        observe: 'events',
-      })
-      .subscribe((event) => {
-        if (event.type === HttpEventType.UploadProgress) {
-          //this.percentDone = Math.round((100 * event.loaded) / event.total);
-          this.percentDone = event.loaded;
-        } else if (event instanceof HttpResponse) {
-          this.uploadSuccess = true;
-        }
-      });
-  } */
-
-  processFrame(file: File, cutout: Cutout): Observable<Blob> {
-    const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
-    formData.append('cutout', JSON.stringify(cutout));
-
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    headers.append('Accept', 'application/json');
-
-    return this.http.post(this.processUrl, formData, {
-      headers: headers,
-      responseType: 'blob'
-    });
-  }
+  // public uploadSingleImageAndProgress(file: File) {
+  //   this.http.post('https://file.io', file, {
+  //       reportProgress: true,
+  //       observe: 'events',
+  //     })
+  //     .subscribe((event) => {
+  //       if (event.type === HttpEventType.UploadProgress) {
+  //         //this.percentDone = Math.round((100 * event.loaded) / event.total);
+  //         this.percentDone = event.loaded;
+  //       } else if (event instanceof HttpResponse) {
+  //         this.uploadSuccess = true;
+  //       }
+  //     });
+  // }
 }

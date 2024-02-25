@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Rectangle } from '../../rectangle';
-import { RectangleService } from '../../../Service/rectangle.service';
+import { RectangleService } from '../../../services/rectangle.service';
 
 @Component({
   selector: 'app-rectangle-form',

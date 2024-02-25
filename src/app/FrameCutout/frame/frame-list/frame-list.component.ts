@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FrameService } from '../../../Service/frame.service';
+import { FrameService } from '../../../services/frame.service';
 import { Frame } from '../../frame';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 

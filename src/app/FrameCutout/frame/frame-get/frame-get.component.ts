@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FileUploader } from 'ng2-file-upload';
 import { Frame } from '../../frame';
-import { FrameService } from '../../../Service/frame.service';
+import { FrameService } from '../../../services/frame.service';
 
 @Component({
   selector: 'app-frame-get',
@@ -27,7 +27,7 @@ export class FrameGetComponent implements OnInit {
     // Routing => path: 'api/file/:fullname', component: FrameGetComponent
 
     this.route.params.subscribe((routeParams: Params) => {
-      console.log('Route params =>', JSON.stringify(routeParams));  // => {"fullname":"Photo-test.jpg"}
+      //console.log('Route params =>', JSON.stringify(routeParams));  // => {"fullname":"Photo-test.jpg"}
       let fullname = routeParams['fullname'];
       this.fileUrl = "http://localhost:8080/api/file/" + fullname;
     });

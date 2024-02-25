@@ -1,40 +1,9 @@
 <!-- app.component.html va se loger dans la balise <app-root></app-root> de index.html -->
 <!-- On arrive ici avec l'adresse http://localhost:4200/ -->
   
-<div class="container">
-  <br />
-  <h1 style="margin:auto; text-align:center;">{{ title }}</h1>
+<br />
+<h1 style="margin:auto; text-align:center;">{{ title }}</h1>
 
-  <app-frame></app-frame>
-
-  <!-- Issu de Crop Image Before Upload.docx -->
-  <ng-container *ngIf="false">
-    <div class="card-body">
-      <input type="file" (change)="fileChangeEvent($event)" />
-      <div class="row" style="margin-top: 15px;">
-
-        <div class="text-center col-md-8">
-          <h5>Image</h5>
-          <image-cropper style="margin: auto; width: 40%; height: 40%;"
-            [imageChangedEvent]="imageChangedEvent"
-            [maintainAspectRatio]="true"
-            [aspectRatio]="4/ 4"
-            [resizeToWidth]="128"
-            format="png"
-            (imageLoaded)="imageLoaded()"
-            (cropperReady)="cropperReady($event)"
-            (imageCropped)="imageCropped($event)"
-            (loadImageFailed)="loadImageFailed()">
-          </image-cropper>
-        </div>
-
-        <div class="text-center col-md-4">
-          <img [src]="croppedImage" />
-        </div>
-        
-      </div>        
-    </div>
-  </ng-container>
-</div>
+<app-accueil></app-accueil>
 
 <router-outlet></router-outlet>

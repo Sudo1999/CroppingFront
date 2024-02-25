@@ -1,14 +1,5 @@
 <!-- <p>upload works!</p> -->
 
-<!-- <head> -->
-  <!-- <meta http-equiv="refresh" content="1; URL=http://localhost:8080/api/file/Photo-test.jpg"> -->
-  <!-- Avec cette balise, l'appel du end-point /api, routé par l'intermédiaire du app-routing.module.ts
-  vers le FrameGetComponent (dans lequel se trouvait initialement cette balise <meta>), provoque une redirection
-  vers l'URL indiqué, http://localhost:8080/api/file/Photo-test.jpg, au bout d'une seconde. -->
-<!-- </head> -->
-
-<!-- Modèle utilisé dans Gestion fichiers images Springboot.docx
-    et aussi dans Upload crop image Springboot Ajax.docx (avec une fonction en Ajax) -->
 <form>
   <ul>
     <li class="list-inline-item">
@@ -23,7 +14,21 @@
   </ul>
 </form>
 
-  <!-- Issu de l'article Télécharger une image avec Angular.docx -->
+
+<!-- Gestion fichiers images Springboot.docx : -->
+<!-- <form method="post" enctype="multipart/form-data" action="/upload"></form> -->
+<!-- 
+    <form method="post" enctype="multipart/form-data" action="/upload">
+   <div>
+    <label for="file">Sélectionner le fichier à envoyer</label>
+    <input type="file" id="file" name="file" >
+   </div>
+   <div><button>Envoyer</button></div>
+  </form>
+ -->
+
+
+  <!-- Télécharger une image avec Angular.docx -->
   <!-- <div class="wrapper">
       <h2>Angular Image Upload Demo</h2>
       <div class="file-upload">
@@ -40,7 +45,8 @@
       </div>
   </div> -->
 
-  <!-- Issu de l'article https://onecodex.ch/blog/createacustomstyledfileuploadinangular9 :
+
+  <!-- Article https://onecodex.ch/blog/createacustomstyledfileuploadinangular9 :
   Using the input element is the only possibility to upload files from your browser.
   First we'll create a form containing the drop zone and a file picker button. -->
   <!-- <h1>Basic HTML File Upload</h1>

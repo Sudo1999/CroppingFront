@@ -1,7 +1,7 @@
 /* ng g component rectangleList */
 import { Component, OnInit } from '@angular/core';
 import { Rectangle } from '../../rectangle';
-import { RectangleService } from '../../../Service/rectangle.service';
+import { RectangleService } from '../../../services/rectangle.service';
 
 @Component({
   selector: 'app-rectangle-list',

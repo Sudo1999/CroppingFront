@@ -1,0 +1,65 @@
+<!-- <p>crop works!</p> -->
+
+<!-- Upload crop image Springboot Ajax.docx : -->
+
+<form id="upload-file-form">
+    <label for="upload-file-input"> Upload your file </label>
+    <input id="upload-file-input" type="file" name="uploadfile" accept="*" />
+    (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadFile method)
+</form>
+
+<script>
+// bind the on-change event
+$(document).ready(function() {
+  $("#upload-file-input").on("change", uploadFile);
+});
+// Upload the file sending it via Ajax at the Spring Boot server.
+function uploadFile() {
+  $.ajax({
+    url: "/uploadFile",
+    type: "POST",
+    data: new FormData($("#upload-file-form")[0]),
+    enctype: 'multipart/form-data',
+    processData: false,
+    contentType: false,
+    cache: false,
+    success: function () {
+      // Handle upload success
+      // ...
+    },
+    error: function () {
+      // Handle upload error
+      // ...
+    }
+  });
+}
+</script>
+
+  <!-- Crop Image Before Upload.docx : -->
+
+  <ng-container *ngIf="false">
+    <div class="card-body">
+      <input type="file" (change)="fileChangeEvent($event)" />
+      <div class="row" style="margin-top: 15px;">
+
+        <div class="text-center col-md-8">
+          <h5>Image</h5>
+          <image-cropper style="margin: auto; width: 40%; height: 40%;"
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="true"
+            [aspectRatio]="4/ 4"
+            [resizeToWidth]="128"
+            format="png"
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady($event)"
+            (imageCropped)="imageCropped($event)"
+            (loadImageFailed)="loadImageFailed()">
+          </image-cropper>
+        </div>
+
+        <div class="text-center col-md-4">
+          <img [src]="croppedImage" />
+        </div>        
+      </div>        
+    </div>
+  </ng-container>
