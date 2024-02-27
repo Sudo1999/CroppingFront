@@ -23,11 +23,12 @@ export class FrameGetComponent implements OnInit {
     private frameService: FrameService ) { }
   
   ngOnInit(): void {
+    console.log("Le NgOnInit de frame-get.component a été appelé.");
     // On doit s'adresser au end-point du FrameController du back => @GetMapping("/file/{filename:.+}")
     // Routing => path: 'api/file/:fullname', component: FrameGetComponent
 
     this.route.params.subscribe((routeParams: Params) => {
-      //console.log('Route params =>', JSON.stringify(routeParams));  // => {"fullname":"Photo-test.jpg"}
+      console.log('Route params =>', JSON.stringify(routeParams));  // => {"fullname":"Photo-test.jpg"}
       let fullname = routeParams['fullname'];
       this.fileUrl = "http://localhost:8080/api/file/" + fullname;
     });

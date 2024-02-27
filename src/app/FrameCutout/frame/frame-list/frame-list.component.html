@@ -9,8 +9,9 @@
     <ul>
       <li *ngFor="let frame of frames">
         <a routerLink="/api/file/{{ frame.fullname }}">
-            <span (click)="onFrameClick(frame)">{{ frame.fullname }}</span>
-        </a> 
+            <!-- <span (click)="onFrameClick(frame)">{{ frame.fullname }}</span> -->
+            <span>{{ frame.fullname }}</span>
+        </a>
       </li>
     </ul>
   </div>

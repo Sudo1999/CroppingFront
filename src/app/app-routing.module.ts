@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { RectangleListComponent } from './framecutout/rectangle/rectangle-list/rectangle-list.component';
 import { RectangleFormComponent } from './framecutout/rectangle/rectangle-form/rectangle-form.component';
-import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
 import { FrameListComponent } from './framecutout/frame/frame-list/frame-list.component';
+import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
 import { UploadComponent } from './file/upload/upload.component';
 import { CropComponent } from './file/crop/crop.component';
 

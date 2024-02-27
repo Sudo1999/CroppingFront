@@ -33,9 +33,9 @@ export class FrameListComponent implements OnInit {
     });
   }
 
-  public onFrameClick(frame: Frame): void {
-    // End-point du FrameController du back => @GetMapping("/file/{filename:.+}")
-    //this.router.navigateByUrl('api/file/' + frame.fullname);
-    this.router.navigate(['/', 'api', 'file', frame.fullname]);
-  }
+  // public onFrameClick(frame: Frame): void {
+  //   // End-point du FrameController du back => @GetMapping("/file/{filename:.+}")
+  //   //this.router.navigateByUrl('api/file/' + frame.fullname);
+  //   //this.router.navigate(['/', 'api', 'file', frame.fullname]);
+  // }
 }
