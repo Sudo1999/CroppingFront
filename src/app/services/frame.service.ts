@@ -11,7 +11,7 @@ import { Cutout } from '../framecutout/cutout';
   providedIn: 'root'
 })
 export class FrameService {
-
+  
   private processUrl = 'http://localhost:8080/api/frame/process';
   private framesUrl!: string;
   private frameGet!: string;
@@ -20,7 +20,7 @@ export class FrameService {
 
   constructor(private router: Router, private http: HttpClient) {
     this.framesUrl = 'http://localhost:8080/api/';
-    this.frameGet = 'http://localhost:8080/api/file';
+    this.frameGet = 'http://localhost:8080/api/file/';
   }
 
   public createFrameWithPath(path: string): Frame {
@@ -64,6 +64,7 @@ export class FrameService {
     );
   }
 
+
   //
   //  ====  Télécharger une image en Angular.docx  ====
   //  ======    (Voir le upload.component)    ======
@@ -71,20 +72,22 @@ export class FrameService {
   //
 
   // Téléchargement de base pour plusieurs images dans Angular
-  // public basicUploadImage(files: File[]) {
-  //   var formData = new FormData();
-  //   Array.from(files).forEach((f) => formData.append('file', f));
-  //   this.http.post('https://file.io', formData).subscribe((event) => {
-  //     console.log('done');
-  //   });
-  // }
+  public basicUploadImage(files: File[]) {
+    var formData = new FormData();
+    Array.from(files).forEach((f) => formData.append('file', f));
+    this.http.post('https://file.io', formData).subscribe((event) => {
+      console.log('done');
+    });
+  }
 
-  // Téléchargement de base pour une seule image dans Angular
-  // public basicUploadSingleImage(file: File) {
-  //   this.http.post('https://file.io', file).subscribe((event) => {
-  //     console.log('done');
-  //   });
-  // }
+  // Téléchargement de base pour une seule image dans Angular  
+  // => This will fail since file.io dosen't accept this type of upload
+  // but it is still possible to upload a file with this style
+  public basicUploadSingleImage(file: File) {
+    this.http.post('https://file.io', file).subscribe((event) => {
+      console.log('done');
+    });
+  }
 
   // Téléchargement de plusieurs images avec une barre de progression
   public uploadImageAndProgress(files: File[]) {
@@ -108,18 +111,18 @@ export class FrameService {
   // Téléchargement d'une seule image avec une barre de progression
   // => This will fail since file.io dosen't accept this type of upload
   // but it is still possible to upload a file with this style
-  // public uploadSingleImageAndProgress(file: File) {
-  //   this.http.post('https://file.io', file, {
-  //       reportProgress: true,
-  //       observe: 'events',
-  //     })
-  //     .subscribe((event) => {
-  //       if (event.type === HttpEventType.UploadProgress) {
-  //         //this.percentDone = Math.round((100 * event.loaded) / event.total);
-  //         this.percentDone = event.loaded;
-  //       } else if (event instanceof HttpResponse) {
-  //         this.uploadSuccess = true;
-  //       }
-  //     });
-  // }
+  public uploadSingleImageAndProgress(file: File) {
+    this.http.post('https://file.io', file, {
+        reportProgress: true,
+        observe: 'events',
+      })
+      .subscribe((event) => {
+        if (event.type === HttpEventType.UploadProgress) {
+          //this.percentDone = Math.round((100 * event.loaded) / event.total);
+          this.percentDone = event.loaded;
+        } else if (event instanceof HttpResponse) {
+          this.uploadSuccess = true;
+        }
+      });
+  }
 }

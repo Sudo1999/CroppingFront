@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
-//import { ToastrModule } from 'ngx-toastr';
-import { FileUploadModule } from 'ng2-file-upload';
+import { ToastrModule } from 'ngx-toastr';
+import { FileUploadModule, FileSelectDirective } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -18,8 +18,9 @@ import { FrameListComponent } from './framecutout/frame/frame-list/frame-list.co
 import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
 import { FrameService } from './services/frame.service';
 import { CutoutComponent } from './framecutout/cutout/cutout.component';
-import { UploadComponent } from './file/upload/upload.component';
+import { FileuploaderComponent } from './file/fileuploader/fileuploader.component';
 import { CropComponent } from './file/crop/crop.component';
+import { ImageuploadComponent } from './file/imageupload/imageupload.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { CropComponent } from './file/crop/crop.component';
     FrameListComponent,
     FrameGetComponent,
     CutoutComponent,
-    UploadComponent,
-    CropComponent
+    FileuploaderComponent,
+    CropComponent,
+    ImageuploadComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { CropComponent } from './file/crop/crop.component';
     ReactiveFormsModule,
     HttpClientModule,
     ImageCropperModule,
-    //ToastrModule.forRoot(),
+    ToastrModule.forRoot(),
     FileUploadModule,
     AppRoutingModule
   ],

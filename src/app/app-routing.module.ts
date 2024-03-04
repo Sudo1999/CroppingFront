@@ -6,8 +6,9 @@ import { RectangleListComponent } from './framecutout/rectangle/rectangle-list/r
 import { RectangleFormComponent } from './framecutout/rectangle/rectangle-form/rectangle-form.component';
 import { FrameListComponent } from './framecutout/frame/frame-list/frame-list.component';
 import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
-import { UploadComponent } from './file/upload/upload.component';
+import { FileuploaderComponent } from './file/fileuploader/fileuploader.component';
 import { CropComponent } from './file/crop/crop.component';
+import { ImageuploadComponent } from './file/imageupload/imageupload.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(AppRoutingModule.routes)],
@@ -37,6 +38,9 @@ export class AppRoutingModule {
       component: FrameListComponent },
     {
       path: 'api/file/:fullname',
-      component: FrameGetComponent }
+      component: FrameGetComponent },
+    {
+      path: 'imageupload',
+      component: ImageuploadComponent }
   ]
 }

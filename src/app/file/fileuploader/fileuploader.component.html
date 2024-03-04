@@ -1,0 +1,24 @@
+<!-- <p>fileuploader works!</p> -->
+<!-- La balise <app-fileuploader></app-fileuploader> est insérée dans frame-list.component.html -->
+
+<h4>Mise en oeuvre du FileUploader</h4>
+<div>
+  <input #fileInput type="file" ng2FileSelect [uploader]="uploader" />
+  <!-- input[type='file'] => display: none (élément masqué). Je commente le style. -->
+  <br /><br />
+  <div class="drop-box"
+       ng2FileDrop
+       [ngClass]="{'dragover': isDropOver}"
+       [uploader]="uploader"
+       (fileOver)="fileOverAnother($event)"
+       (click)="fileClicked()">
+    <span class="drag-in-title">Import or drag file here</span>
+    <!-- drag-in-title => display: none (élément masqué). Pourtant c'est ce texte qui apparaît. -->
+    <span class="drag-over-title">Drop the file</span>
+    <!-- drag-over-title => display: block -->
+  </div>
+</div> 
+
+<br />
+<button routerLink="/imageupload">Autres mises en oeuvre</button>
+<br /><br />
