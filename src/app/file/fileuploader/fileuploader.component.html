@@ -4,12 +4,12 @@
 <h4>Mise en oeuvre du FileUploader</h4>
 <div>
   <input #fileInput type="file" ng2FileSelect [uploader]="uploader" />
-  <!-- input[type='file'] => display: none (élément masqué). Je commente le style. -->
+  <!-- input[type='file'] => display: none (élément masqué) -->
   <br /><br />
   <div class="drop-box"
        ng2FileDrop
-       [ngClass]="{'dragover': isDropOver}"
        [uploader]="uploader"
+       [ngClass]="{'dragover': isDropOver}"
        (fileOver)="fileOverAnother($event)"
        (click)="fileClicked()">
     <span class="drag-in-title">Import or drag file here</span>

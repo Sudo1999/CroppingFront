@@ -27,7 +27,7 @@ export class FileuploaderComponent implements OnInit {
     }];
 
     this.uploader = new FileUploader({   // options: FileUploaderOptions
-      url: 'http://localhost:8080/api/store',
+      url: UploadUrl,
       autoUpload: true,
       headers: headers
     });
@@ -40,8 +40,8 @@ export class FileuploaderComponent implements OnInit {
     };
   }
  
-  fileOverAnother(e: any): void {
-    this.isDropOver = e;
+  fileOverAnother(event: any): void {
+    this.isDropOver = event;
   }
 
   fileClicked() {
