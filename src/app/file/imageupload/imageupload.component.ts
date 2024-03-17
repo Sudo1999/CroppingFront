@@ -9,18 +9,17 @@ import { FrameService } from '../../services/frame.service';
 @Component({
   selector: 'app-imageupload',
   /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
-  template: `
+  /* template: `
   <div class="container">
-    <input type="file" accept=".jpg,.png" class="button" />
-    <!-- (change)="uploadImage($event.target.files)" /> -->
+    <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($event.target.files)" />
     <p> Upload Percent: {{ percentDone }}% </p>
     <br />
     <ng-container *ngIf="uploadSuccess" class="success">
       <p class="success">Upload Successful</p>
     </ng-container>
   </div>
-  `,
-  //templateUrl: './imageupload.component.html',
+  `, */
+  templateUrl: './imageupload.component.html',
   styleUrl: './imageupload.component.css'
 })
 export class ImageuploadComponent implements OnInit {  
@@ -29,7 +28,9 @@ export class ImageuploadComponent implements OnInit {
     private formBuilder: FormBuilder,
     private frameService: FrameService,
     private toastr: ToastrService,
-    private http: HttpClient) { }
+    private http: HttpClient) {
+      this.imageForm = this.formBuilder.group({});
+     }
 
   ngOnInit(): void {    
     // On doit s'adresser à l'un des deux end-points concernés du FrameController :
@@ -68,8 +69,8 @@ export class ImageuploadComponent implements OnInit {
   public router!: Router;
   public responses!: any[];
   public hasBaseDropZoneOver = false;
-  //public imageForm: FormGroup;
-  //public uploader: FileUploader;  // Duplicate identifier 'uploader' (voir au-dessus)
+  public imageForm!: FormGroup;
+  public uploader!: FileUploader;
   // constructor(private formBuilder: FormBuilder) {
   //   this.imageForm = this.formBuilder.group({});
   // }
