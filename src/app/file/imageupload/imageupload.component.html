@@ -1,69 +1,103 @@
 <!-- <p>imageupload works!</p> -->
 <!-- On arrive ici par le routage du path: 'imageupload' -->
+
 <div class="container">
-
-
-  <!-- Télécharger une image en Angular.docx -->
-  <input type="file" accept=".jpg,.png" class="button" />
-  <!-- (change)="uploadImage($event.target.files)" /> -->
-  <p> Upload Percent: {{ percentDone }}% </p>
-  <br />
-  <ng-container *ngIf="uploadSuccess" class="success">
-    <p class="success"> Upload Successful </p>
-  </ng-container>
-
-
-  <!-- Upload crop image Springboot Ajax.docx ? -->
-  <form>
-    <ul>
-      <li class="list-inline-item">
-        <input id="file" name="file" type="file" class="btn btn-primary btn-sm" />
-        <!-- (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadfile method) -->
-          <!-- (Upload crop image Springboot Ajax.docx) -->
-      </li>
-      <li class="list-inline-item">
-        <button class="btn btn-primary btn-sm" (click)="onFileClick()">Envoyer</button>
-      </li>
-    </ul>
-  </form>
-  <br />
-
-
-  <!-- Article https://onecodex.ch/blog/createacustomstyledfileuploadinangular9 :
-  Using the input element is the only possibility to upload files from your browser.
-  First we'll create a form containing the drop zone and a file picker button. -->
-  <h3>Basic HTML File Upload</h3>
-  <input type="file" />
-  <div id="direct_upload"
-    ng2FileDrop
-    [uploader]="uploader"
-    (fileOver)="fileOverBase($event)"
-    [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }">
-    <h3>Upload File</h3>
-    <!-- <p>Please select an image. You can also drag and drop an image file into the dashed area.</p> -->
-    <form [ngFormOptions]='imageForm'> <!-- [formGroup]="imageForm"> -->
-      <div>
-        <button type="button" style="border-style:dotted" mat-raised-button (click)="fileInput.click()">Choose File</button>
-        <input
-          hidden
-          [uploader]="uploader"
-          (change)="fileInput.value = ''"
-          ng2FileSelect
-          #fileInput type="file"
-          id="file" multiple />
-      </div>
-    </form>
-  </div>
+  Choisissez la façon dont vous voulez télécharger votre image :
   <br /><br />
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#Choix1">Choix 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#Choix2">Choix 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#Choix3">Choix 3</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#Choix4">Choix 4</a>
+    </li>
+  </ul>
+  <div class="tab-content">
 
-
-  <!-- Gestion fichiers images Springboot.docx : -->
-  <!-- <form method="post" enctype="multipart/form-data" action="/upload"></form> -->
-      <form method="post" enctype="multipart/form-data" action="/upload">
-    <div>
-      <label for="file">Sélectionner le fichier &nbsp;</label>
-      <input type="file" id="file" name="file" >
+    <!-- Télécharger une image en Angular.docx -->
+    <div class="tab-pane active" id="Choix1">
+      <br />
+      <input type="file" accept=".jpg,.png" class="button" />
+      <!-- (change)="uploadImage($event.target.files)" /> -->
+      <p> Upload Percent: {{ percentDone }}% </p>
+      <br />
+      <ng-container *ngIf="uploadSuccess" class="success">
+        <p class="success"> Upload Successful </p>
+      </ng-container>
     </div>
-    <div><button>Envoyer</button></div>
-    </form>    
+
+    <!-- Upload crop image Springboot Ajax.docx ? -->
+    <div class="tab-pane" id="Choix2">
+      <br />
+      <form>
+        <ul>
+          <li class="list-inline-item">
+            <input id="file" name="file" type="file" class="btn btn-primary btn-sm" />
+            <!-- (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadfile method) -->
+              <!-- (Upload crop image Springboot Ajax.docx) -->
+          </li>
+          <li class="list-inline-item">
+            <button class="btn btn-primary btn-sm" (click)="onFileClick()">
+              Envoyer
+            </button>
+          </li>
+        </ul>
+      </form>
+      <br />
+    </div>
+
+    <!-- Article https://onecodex.ch/blog/createacustomstyledfileuploadinangular9 :
+    Using the input element is the only possibility to upload files from your browser.
+    First we'll create a form containing the drop zone and a file picker button. -->
+    <div class="tab-pane" id="Choix3">
+      <br />
+      <h3>Basic HTML File Upload</h3>
+      <input type="file" />
+      <div id="direct_upload"
+        ng2FileDrop
+        [uploader]="uploader"
+        (fileOver)="fileOverBase($event)"
+        [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }">
+        <h3>Upload File</h3>
+        <!-- <p>Please select an image. You can also drag and drop an image file into the dashed area.</p> -->
+        <form [ngFormOptions]='imageForm'> <!-- [formGroup]="imageForm"> -->
+          <div>
+            <button type="button" style="border-style:dotted" mat-raised-button (click)="fileInput.click()">
+              Choose File
+            </button>
+            <input
+              hidden
+              [uploader]="uploader"
+              (change)="fileInput.value = ''"
+              ng2FileSelect
+              #fileInput type="file"
+              id="file" multiple />
+          </div>
+        </form>
+      </div>
+      <br /><br />
+    </div>
+
+    <!-- Gestion fichiers images Springboot.docx : -->
+    <div class="tab-pane" id="Choix4">
+      <br />
+      <form method="post" enctype="multipart/form-data" action="/upload">
+        <div>
+          <label for="file">Sélectionner le fichier &nbsp;</label>
+          <input type="file" id="file" name="file" >
+        </div>
+        <div>
+          <button>
+            Envoyer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

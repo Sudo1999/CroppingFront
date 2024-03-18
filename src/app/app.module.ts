@@ -1,4 +1,5 @@
 import { NgModule, enableProdMode } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,6 +37,7 @@ import { ImageuploadComponent } from './file/imageupload/imageupload.component';
     ImageuploadComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     //MatToolbarModule,

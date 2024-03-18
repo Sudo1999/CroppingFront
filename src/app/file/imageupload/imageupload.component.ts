@@ -1,4 +1,5 @@
 import { Component, VERSION, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,7 +23,9 @@ import { FrameService } from '../../services/frame.service';
   templateUrl: './imageupload.component.html',
   styleUrl: './imageupload.component.css'
 })
-export class ImageuploadComponent implements OnInit {  
+export class ImageuploadComponent implements OnInit {
+
+  public wayToDo!: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,7 +35,9 @@ export class ImageuploadComponent implements OnInit {
       this.imageForm = this.formBuilder.group({});
      }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
+    this.wayToDo = 'Telecharger';
+
     // On doit s'adresser à l'un des deux end-points concernés du FrameController :
     //@PostMapping("/uploadfile")
     // public ResponseEntity<?> uploadFile( @RequestParam("uploadfile") MultipartFile uploadfile, 
