@@ -1,6 +1,7 @@
 /* ng g service frame */
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpEventType, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Component, VERSION, OnInit, Injectable } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map, take } from 'rxjs';
 import { Frame } from '../framecutout/frame';
@@ -67,7 +68,7 @@ export class FrameService {
 
   //
   //  ====  Télécharger une image en Angular.docx  ====
-  //  ======    (Voir le upload.component)    ======
+  //  ======    (Voir le imageupload.component)    ======
   // (Voir aussi https://stackblitz.com/edit/angular-file-upload-gcbfhf?file=app/app.component.ts)
   //
 
@@ -100,7 +101,7 @@ export class FrameService {
       })
       .subscribe((event) => {
         if (event.type === HttpEventType.UploadProgress) {
-          //this.percentDone = Math.round((100 * event.loaded) / event.total);
+          this.percentDone = Math.round((100 * event.loaded) / (event.total || 1));
           this.percentDone = event.loaded;
         } else if (event instanceof HttpResponse) {
           this.uploadSuccess = true;

@@ -23,16 +23,15 @@
     <!-- Télécharger une image en Angular.docx -->
     <div class="tab-pane active" id="Choix1">
       <br />
-      <input type="file" accept=".jpg,.png" class="button" />
-      <!-- (change)="uploadImage($event.target.files)" /> -->
-      <p> Upload Percent: {{ percentDone }}% </p>
+      <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($any($event.target).files)" />
+      <p class="percent"> Upload Percent : {{ percentDone }}% </p>
       <br />
       <ng-container *ngIf="uploadSuccess" class="success">
         <p class="success"> Upload Successful </p>
       </ng-container>
     </div>
 
-    <!-- Upload crop image Springboot Ajax.docx ? -->
+    <!-- Upload crop image Springboot Ajax.docx ? Gestion fichiers images Springboot.docx ? -->
     <div class="tab-pane" id="Choix2">
       <br />
       <form>
@@ -99,5 +98,5 @@
         </div>
       </form>
     </div>
-  </div>
-</div>
+  </div>  <!-- <div class="tab-content"> -->
+</div>  <!-- <div class="container"> -->

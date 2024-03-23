@@ -1,0 +1,17 @@
+
+p.percent {
+  padding-left: 5px;
+}
+.button {
+  padding: 5px;
+  background-color: black;
+  color: white;
+  width: 40%;
+  margin-bottom: 15px;
+}
+.sucess {
+  background-color: lightgreen;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}

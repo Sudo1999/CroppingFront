@@ -12,8 +12,8 @@ import { FrameService } from '../../services/frame.service';
   /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
   /* template: `
   <div class="container">
-    <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($event.target.files)" />
-    <p> Upload Percent: {{ percentDone }}% </p>
+    <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($any($event.target).files)" />
+    <p> Upload Percent : {{ percentDone }}% </p>
     <br />
     <ng-container *ngIf="uploadSuccess" class="success">
       <p class="success">Upload Successful</p>
@@ -25,8 +25,6 @@ import { FrameService } from '../../services/frame.service';
 })
 export class ImageuploadComponent implements OnInit {
 
-  public wayToDo!: string;
-
   constructor(
     private formBuilder: FormBuilder,
     private frameService: FrameService,
@@ -36,7 +34,6 @@ export class ImageuploadComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.wayToDo = 'Telecharger';
 
     // On doit s'adresser à l'un des deux end-points concernés du FrameController :
     //@PostMapping("/uploadfile")
@@ -50,12 +47,12 @@ export class ImageuploadComponent implements OnInit {
 
   //  ====  Télécharger une image en Angular.docx  ====
   // Voir aussi https://stackblitz.com/edit/angular-file-upload-gcbfhf?file=app/app.component.ts
-  public percentDone!: number;
-  public uploadSuccess!: boolean;
+  public percentDone: number = 0;
+  public uploadSuccess: boolean = false;
   //pick from one of the 4 styles of file uploads
   uploadImage(files: File[]) {
-    this.frameService.basicUploadImage(files);
-    //this.frameService.uploadImageAndProgress(files);
+    //this.frameService.basicUploadImage(files);
+    this.frameService.uploadImageAndProgress(files);
   //uploadImage(file: File) {
     //this.frameService.basicUploadSingleImage(file);
     //this.frameService.uploadSingleImageAndProgress(file);
