@@ -1,4 +1,4 @@
-import { Component, VERSION, OnInit } from '@angular/core';
+import { Component, VERSION, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -22,6 +22,7 @@ import { FrameService } from '../../services/frame.service';
     `, */
     templateUrl: './imageupload.component.html',
     styleUrl: './imageupload.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ImageuploadComponent implements OnInit {

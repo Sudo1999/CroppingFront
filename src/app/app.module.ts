@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { MatToolbarModule } from '@angular/material/toolbar';
 //import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ToastrModule } from 'ngx-toastr';
 import { FileUploadModule, FileSelectDirective } from 'ng2-file-upload';
@@ -48,6 +48,6 @@ import { ImageuploadComponent } from './file/imageupload/imageupload.component';
         AppRoutingModule], providers: [
         RectangleService,
         FrameService,
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
     ] })
 export class AppModule { }

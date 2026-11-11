@@ -1,4 +1,4 @@
-import { Component, OnInit, VERSION, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, VERSION, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FileItem, FileUploader } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
 /* Télécharger une image avec Angular.docx (Avec un serveur Express.js) */
@@ -9,6 +9,7 @@ const UploadUrl = 'http://localhost:8080/api/store';
     selector: 'app-fileuploader',
     templateUrl: './fileuploader.component.html',
     styleUrl: './fileuploader.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FileuploaderComponent implements OnInit {

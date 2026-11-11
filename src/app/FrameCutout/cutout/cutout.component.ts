@@ -1,5 +1,5 @@
 // cutout.component.ts
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CutoutService } from './cutout.service';
 import { Cutout } from '../cutout';
 
@@ -7,6 +7,7 @@ import { Cutout } from '../cutout';
     selector: 'app-cutout',
     templateUrl: './cutout.component.html',
     styleUrls: ['./cutout.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CutoutComponent {

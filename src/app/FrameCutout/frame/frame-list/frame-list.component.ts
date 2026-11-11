@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FrameService } from '../../../services/frame.service';
 import { Frame } from '../../frame';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -7,6 +7,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
     selector: 'app-frame-list',
     templateUrl: './frame-list.component.html',
     styleUrl: './frame-list.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FrameListComponent implements OnInit {

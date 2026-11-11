@@ -1,5 +1,5 @@
 /* ng g component rectangle-form */
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Rectangle } from '../../rectangle';
 import { RectangleService } from '../../../services/rectangle.service';
@@ -10,6 +10,7 @@ import { RectangleService } from '../../../services/rectangle.service';
     // C'est par une navigation via des liens qu'on accède à la page.
     templateUrl: './rectangle-form.component.html',
     styleUrl: './rectangle-form.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RectangleFormComponent {

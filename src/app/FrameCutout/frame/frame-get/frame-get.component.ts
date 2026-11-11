@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, VERSION, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, VERSION, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
@@ -10,6 +10,7 @@ import { FrameService } from '../../../services/frame.service';
     selector: 'app-frame-get',
     templateUrl: './frame-get.component.html',
     styleUrl: './frame-get.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FrameGetComponent implements OnInit {
