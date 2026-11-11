@@ -1,18 +1,20 @@
 <!-- <p>frame-list works!</p> -->
 
 <div class="container">
-  
+
   <app-fileuploader></app-fileuploader>
-  
+
   <div style="margin-left:3%;">
     <p>Images disponibles :</p>
     <ul>
-      <li *ngFor="let frame of frames">
-        <a routerLink="/api/file/{{ frame.fullname }}">
+      @for (frame of frames; track frame) {
+        <li>
+          <a routerLink="/api/file/{{ frame.fullname }}">
             <!-- <span (click)="onFrameClick(frame)">{{ frame.fullname }}</span> -->
             <span>{{ frame.fullname }}</span>
-        </a>
-      </li>
+          </a>
+        </li>
+      }
     </ul>
   </div>
 </div>
