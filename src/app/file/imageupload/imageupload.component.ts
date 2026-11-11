@@ -1,6 +1,6 @@
 import { Component, VERSION, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileItem, FileUploader } from 'ng2-file-upload';

@@ -1,6 +1,6 @@
 /* ng g component accueil */
 import { Component } from '@angular/core';
-import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FrameService } from '../services/frame.service';
 import { Cutout } from '../framecutout/cutout';
 

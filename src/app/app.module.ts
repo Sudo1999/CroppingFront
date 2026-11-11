@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { MatToolbarModule } from '@angular/material/toolbar';
 //import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ToastrModule } from 'ngx-toastr';
 import { FileUploadModule, FileSelectDirective } from 'ng2-file-upload';
@@ -23,38 +23,31 @@ import { FileuploaderComponent } from './file/fileuploader/fileuploader.componen
 import { CropComponent } from './file/crop/crop.component';
 import { ImageuploadComponent } from './file/imageupload/imageupload.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    AccueilComponent,
-    RectangleListComponent,
-    RectangleFormComponent,
-    FrameListComponent,
-    FrameGetComponent,
-    CutoutComponent,
-    FileuploaderComponent,
-    CropComponent,
-    ImageuploadComponent
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    //MatToolbarModule,
-    //MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ImageCropperModule,
-    ToastrModule.forRoot(),
-    FileUploadModule,
-    AppRoutingModule
-  ],
-  // Le provider est une méthode qui fournit une instance de classe aux composantes de l'application
-  providers: [
-    RectangleService,
-    FrameService
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        AccueilComponent,
+        RectangleListComponent,
+        RectangleFormComponent,
+        FrameListComponent,
+        FrameGetComponent,
+        CutoutComponent,
+        FileuploaderComponent,
+        CropComponent,
+        ImageuploadComponent
+    ],
+    bootstrap: [AppComponent], imports: [CommonModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        //MatToolbarModule,
+        //MatButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ImageCropperModule,
+        ToastrModule.forRoot(),
+        FileUploadModule,
+        AppRoutingModule], providers: [
+        RectangleService,
+        FrameService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

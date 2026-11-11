@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, VERSION, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FileUploader } from 'ng2-file-upload';
 import { Frame } from '../../frame';
 import { FrameService } from '../../../services/frame.service';
