@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Dimensions, ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
-  selector: 'app-crop',
-  templateUrl: './crop.component.html',
-  styleUrl: './crop.component.css'
+    selector: 'app-crop',
+    templateUrl: './crop.component.html',
+    styleUrl: './crop.component.css',
+    standalone: false
 })
 export class CropComponent {
 

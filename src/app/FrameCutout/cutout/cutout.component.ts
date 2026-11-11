@@ -4,9 +4,10 @@ import { CutoutService } from './cutout.service';
 import { Cutout } from '../cutout';
 
 @Component({
-  selector: 'app-cutout',
-  templateUrl: './cutout.component.html',
-  styleUrls: ['./cutout.component.css']
+    selector: 'app-cutout',
+    templateUrl: './cutout.component.html',
+    styleUrls: ['./cutout.component.css'],
+    standalone: false
 })
 export class CutoutComponent {
 

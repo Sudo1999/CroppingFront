@@ -8,20 +8,21 @@ import { ToastrService } from 'ngx-toastr';
 import { FrameService } from '../../services/frame.service';
 
 @Component({
-  selector: 'app-imageupload',
-  /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
-  /* template: `
-  <div class="container">
-    <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($any($event.target).files)" />
-    <p> Upload Percent : {{ percentDone }}% </p>
-    <br />
-    <ng-container *ngIf="uploadSuccess" class="success">
-      <p class="success">Upload Successful</p>
-    </ng-container>
-  </div>
-  `, */
-  templateUrl: './imageupload.component.html',
-  styleUrl: './imageupload.component.css'
+    selector: 'app-imageupload',
+    /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
+    /* template: `
+    <div class="container">
+      <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($any($event.target).files)" />
+      <p> Upload Percent : {{ percentDone }}% </p>
+      <br />
+      <ng-container *ngIf="uploadSuccess" class="success">
+        <p class="success">Upload Successful</p>
+      </ng-container>
+    </div>
+    `, */
+    templateUrl: './imageupload.component.html',
+    styleUrl: './imageupload.component.css',
+    standalone: false
 })
 export class ImageuploadComponent implements OnInit {
 

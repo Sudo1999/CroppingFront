@@ -4,11 +4,12 @@ import { Rectangle } from '../../rectangle';
 import { RectangleService } from '../../../services/rectangle.service';
 
 @Component({
-  selector: 'app-rectangle-list',
-  // Ce sélecteur ne correspond à aucune balise <app-rectangle-list></app-rectangle-list>.
-  // C'est par une navigation via des liens qu'on accède à la page.
-  templateUrl: './rectangle-list.component.html',
-  styleUrl: './rectangle-list.component.css'
+    selector: 'app-rectangle-list',
+    // Ce sélecteur ne correspond à aucune balise <app-rectangle-list></app-rectangle-list>.
+    // C'est par une navigation via des liens qu'on accède à la page.
+    templateUrl: './rectangle-list.component.html',
+    styleUrl: './rectangle-list.component.css',
+    standalone: false
 })
 export class RectangleListComponent implements OnInit {
 

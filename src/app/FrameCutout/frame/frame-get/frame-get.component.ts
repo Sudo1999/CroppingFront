@@ -7,9 +7,10 @@ import { Frame } from '../../frame';
 import { FrameService } from '../../../services/frame.service';
 
 @Component({
-  selector: 'app-frame-get',
-  templateUrl: './frame-get.component.html',
-  styleUrl: './frame-get.component.css'
+    selector: 'app-frame-get',
+    templateUrl: './frame-get.component.html',
+    styleUrl: './frame-get.component.css',
+    standalone: false
 })
 export class FrameGetComponent implements OnInit {
   

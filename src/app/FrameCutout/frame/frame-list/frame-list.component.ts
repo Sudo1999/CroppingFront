@@ -4,9 +4,10 @@ import { Frame } from '../../frame';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-frame-list',
-  templateUrl: './frame-list.component.html',
-  styleUrl: './frame-list.component.css'
+    selector: 'app-frame-list',
+    templateUrl: './frame-list.component.html',
+    styleUrl: './frame-list.component.css',
+    standalone: false
 })
 export class FrameListComponent implements OnInit {
 

@@ -5,11 +5,12 @@ import { Rectangle } from '../../rectangle';
 import { RectangleService } from '../../../services/rectangle.service';
 
 @Component({
-  selector: 'app-rectangle-form',
-  // Ce sélecteur ne correspond à aucune balise <app-rectangle-form></app-rectangle-form>.
-  // C'est par une navigation via des liens qu'on accède à la page.
-  templateUrl: './rectangle-form.component.html',
-  styleUrl: './rectangle-form.component.css'
+    selector: 'app-rectangle-form',
+    // Ce sélecteur ne correspond à aucune balise <app-rectangle-form></app-rectangle-form>.
+    // C'est par une navigation via des liens qu'on accède à la page.
+    templateUrl: './rectangle-form.component.html',
+    styleUrl: './rectangle-form.component.css',
+    standalone: false
 })
 export class RectangleFormComponent {
   

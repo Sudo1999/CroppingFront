@@ -6,9 +6,10 @@ import { ToastrService } from 'ngx-toastr';
 const UploadUrl = 'http://localhost:8080/api/store';
 
 @Component({
-  selector: 'app-fileuploader',
-  templateUrl: './fileuploader.component.html',
-  styleUrl: './fileuploader.component.css'
+    selector: 'app-fileuploader',
+    templateUrl: './fileuploader.component.html',
+    styleUrl: './fileuploader.component.css',
+    standalone: false
 })
 export class FileuploaderComponent implements OnInit {
 
