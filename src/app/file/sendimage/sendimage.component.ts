@@ -1,14 +1,14 @@
-import { Component, VERSION, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, VERSION, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FileItem, FileUploader } from 'ng2-file-upload';
-import { ToastrService } from 'ngx-toastr';
+import { FileItem, FileUploader, FileUploadModule } from 'ng2-file-upload';
+import { MatButtonModule } from '@angular/material/button';
+import { ToastrService } from '@iqx-limited/ngx-toastr';
 import { FrameService } from '../../services/frame.service';
 
 @Component({
-    selector: 'app-imageupload',
     /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
     /* template: `
     <div class="container">
@@ -20,20 +20,36 @@ import { FrameService } from '../../services/frame.service';
       </ng-container>
     </div>
     `, */
-    templateUrl: './imageupload.component.html',
-    styleUrl: './imageupload.component.css',
+    selector: 'app-sendimage',    
+    templateUrl: './sendimage.component.html',
+    styleUrl: './sendimage.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [
+      CommonModule,
+      FormsModule,
+      ReactiveFormsModule,
+      MatButtonModule,
+      FileUploadModule
+    ]
 })
-export class ImageuploadComponent implements OnInit {
+export class SendimageComponent implements OnInit {
 
-  constructor(
+  private http = inject(HttpClient);
+  public uploader: FileUploader = new FileUploader({ url: 'http://localhost:8080/api/upload' });
+
+  //public hasBaseDropZoneOver = false;
+  //public imageForm!: FormGroup;
+  //public uploadUrl = 'http://localhost:8080/api/upload'; // <-- Mon URL d'upload (A vérifier)
+
+  constructor(    
+    //private http: HttpClient,
     private formBuilder: FormBuilder,
     private frameService: FrameService,
-    private toastr: ToastrService,
-    private http: HttpClient) {
+    private toastr: ToastrService
+  ) { 
       this.imageForm = this.formBuilder.group({});
-     }
+    }
 
   ngOnInit(): void {
 
@@ -46,6 +62,46 @@ export class ImageuploadComponent implements OnInit {
     // RedirectAttributes redirectAttributes)
   }
 
+  // ---> Nouvelles méthodes pour remplacer ng2-file-upload <--- //
+/* 
+  onDragOver(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.hasBaseDropZoneOver = true;
+  }
+
+  onDragLeave(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.hasBaseDropZoneOver = false;
+  }
+
+  onDrop(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.hasBaseDropZoneOver = false;
+
+    const files = event.dataTransfer?.files;
+    if (files && files.length > 0) {
+      Array.from(files).forEach(file => this.uploadFile(file));
+    }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      Array.from(input.files).forEach(file => this.uploadFile(file));
+    }
+  }
+
+  uploadFile(file: File): void {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    this.http.post(this.uploadUrl, formData).subscribe({
+      next: (response) => console.log('Fichier envoyé avec succès', response),
+      error: (err) => console.error('Erreur lors de l\'envoi', err)
+    });
+  } */
 
   //  ====  Télécharger une image en Angular.docx  ====
   // Voir aussi https://stackblitz.com/edit/angular-file-upload-gcbfhf?file=app/app.component.ts
@@ -72,9 +128,9 @@ export class ImageuploadComponent implements OnInit {
   // Article https://onecodex.ch/blog/createacustomstyledfileuploadinangular9 :
   public router!: Router;
   public responses!: any[];
-  public hasBaseDropZoneOver = false;
-  public imageForm!: FormGroup;
-  public uploader!: FileUploader;
+  public hasBaseDropZoneOver = false;   // => Pourrait être défini plus haut
+  public imageForm!: FormGroup;   // => Pourrait être défini plus haut
+  //public uploader!: FileUploader;
   // constructor(private formBuilder: FormBuilder) {
   //   this.imageForm = this.formBuilder.group({});
   // }

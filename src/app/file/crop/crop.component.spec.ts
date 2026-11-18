@@ -8,8 +8,8 @@ describe('CropComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CropComponent]
-    })
+    declarations: [CropComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(CropComponent);

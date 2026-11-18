@@ -1,5 +1,6 @@
 /* ng g component accueil */
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
 import { FrameService } from '../services/frame.service';
 import { Cutout } from '../framecutout/cutout';
@@ -9,7 +10,8 @@ import { Cutout } from '../framecutout/cutout';
     templateUrl: './accueil.component.html',
     styleUrl: './accueil.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [RouterLink]
 })
 export class AccueilComponent {
 }

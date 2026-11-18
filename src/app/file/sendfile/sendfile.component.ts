@@ -1,18 +1,23 @@
 import { Component, OnInit, VERSION, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { FileItem, FileUploader } from 'ng2-file-upload';
-import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { FileItem, FileUploader, FileUploadModule } from 'ng2-file-upload';
+import { ToastrService } from '@iqx-limited/ngx-toastr';
 /* Télécharger une image avec Angular.docx (Avec un serveur Express.js) */
 /* https://roufid.com/angular-file-upload-spring-boot */
 const UploadUrl = 'http://localhost:8080/api/store';
 
 @Component({
-    selector: 'app-fileuploader',
-    templateUrl: './fileuploader.component.html',
-    styleUrl: './fileuploader.component.css',
+    selector: 'app-sendfile',
+    templateUrl: './sendfile.component.html',
+    styleUrl: './sendfile.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [
+      FileUploadModule,
+      CommonModule
+    ]
 })
-export class FileuploaderComponent implements OnInit {
+export class SendfileComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef;
   public uploader!: FileUploader;

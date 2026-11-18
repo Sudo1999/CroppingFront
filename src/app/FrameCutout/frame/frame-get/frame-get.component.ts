@@ -11,7 +11,8 @@ import { FrameService } from '../../../services/frame.service';
     templateUrl: './frame-get.component.html',
     styleUrl: './frame-get.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: []
 })
 export class FrameGetComponent implements OnInit {
   

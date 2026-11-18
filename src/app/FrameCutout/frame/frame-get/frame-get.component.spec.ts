@@ -8,8 +8,8 @@ describe('FrameGetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FrameGetComponent]
-    })
+    declarations: [FrameGetComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(FrameGetComponent);

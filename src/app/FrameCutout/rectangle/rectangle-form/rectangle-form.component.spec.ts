@@ -8,8 +8,8 @@ describe('RectangleFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RectangleFormComponent]
-    })
+    declarations: [RectangleFormComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(RectangleFormComponent);

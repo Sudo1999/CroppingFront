@@ -8,7 +8,8 @@ import { Cutout } from '../cutout';
     templateUrl: './cutout.component.html',
     styleUrls: ['./cutout.component.css'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: []
 })
 export class CutoutComponent {
 

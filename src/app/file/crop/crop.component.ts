@@ -1,12 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Dimensions, ImageCroppedEvent } from 'ngx-image-cropper';
+import { Dimensions, ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
 
 @Component({
     selector: 'app-crop',
     templateUrl: './crop.component.html',
     styleUrl: './crop.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [ImageCropperComponent ]
 })
 export class CropComponent {
 

@@ -8,8 +8,8 @@ describe('FrameListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FrameListComponent]
-    })
+    declarations: [FrameListComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(FrameListComponent);

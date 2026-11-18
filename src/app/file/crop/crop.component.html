@@ -50,6 +50,7 @@
           [aspectRatio]="4/ 4"
           [resizeToWidth]="128"
           format="png"
+          //output="base64"   // A décommenter en cas d'erreur (L'événement (imageCropped) maj renvoie par défaut un Blob et une objectUrl (event.objectUrl ou event.blob) plutôt que event.base64)
           (imageLoaded)="imageLoaded()"
           (cropperReady)="cropperReady($event)"
           (imageCropped)="imageCropped($event)"
