@@ -8,8 +8,8 @@ describe('RectangleListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RectangleListComponent]
-    })
+    declarations: [RectangleListComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(RectangleListComponent);

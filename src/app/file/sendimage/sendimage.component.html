@@ -60,28 +60,40 @@
       <br />
       <h3>Basic HTML File Upload</h3>
       <input type="file" />
-      <div id="direct_upload"
+      <div id="direct_upload"      
+        //(dragover)="onDragOver($event)"
+        //(dragleave)="onDragLeave($event)"
+        //(drop)="onDrop($event)"
+        //[class.nv-file-over]="hasBaseDropZoneOver">
         ng2FileDrop
         [uploader]="uploader"
         (fileOver)="fileOverBase($event)"
         [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }">
         <h3>Upload File</h3>
         <!-- <p>Please select an image. You can also drag and drop an image file into the dashed area.</p> -->
-        <form [ngFormOptions]='imageForm'> <!-- [formGroup]="imageForm"> -->
+        <form [formGroup]="imageForm"> <!-- [ngFormOptions]='imageForm' -->
           <div>
             <button type="button" style="border-style:dotted" mat-raised-button (click)="fileInput.click()">
               Choose File
             </button>
+            <!--<input
+              hidden
+              (change)="onFileSelected($event); fileInput.value = ''"
+              #fileInput
+              type="file"
+              id="file"
+              multiple />-->
             <input
               hidden
               [uploader]="uploader"
               (change)="fileInput.value = ''"
               ng2FileSelect
-              #fileInput type="file"
-              id="file" multiple />
-            </div>
-          </form>
-        </div>
+              #fileInput
+              type="file"
+              id="file"
+              multiple />
+          </div>
+        </form>
         <br /><br />
       </div>
 
@@ -100,5 +112,6 @@
           </div>
         </form>
       </div>
-    </div>  <!-- <div class="tab-content"> -->
-  </div>  <!-- <div class="container"> -->
+    </div>
+  </div>  <!-- <div class="tab-content"> -->
+</div>  <!-- <div class="container"> -->

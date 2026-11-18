@@ -1,8 +1,10 @@
 /* ng g component rectangle-form */
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Rectangle } from '../../rectangle';
 import { RectangleService } from '../../../services/rectangle.service';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
     selector: 'app-rectangle-form',
@@ -11,7 +13,11 @@ import { RectangleService } from '../../../services/rectangle.service';
     templateUrl: './rectangle-form.component.html',
     styleUrl: './rectangle-form.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [
+      FormsModule,
+      CommonModule
+    ]
 })
 export class RectangleFormComponent {
   

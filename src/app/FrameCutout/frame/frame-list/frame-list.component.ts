@@ -1,14 +1,19 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { SendfileComponent } from '../../../file/sendfile/sendfile.component';
 import { FrameService } from '../../../services/frame.service';
 import { Frame } from '../../frame';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-frame-list',
     templateUrl: './frame-list.component.html',
     styleUrl: './frame-list.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [
+      RouterLink,
+      SendfileComponent
+    ]
 })
 export class FrameListComponent implements OnInit {
 

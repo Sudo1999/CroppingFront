@@ -1,5 +1,6 @@
 /* ng g component rectangleList */
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Rectangle } from '../../rectangle';
 import { RectangleService } from '../../../services/rectangle.service';
 
@@ -10,7 +11,8 @@ import { RectangleService } from '../../../services/rectangle.service';
     templateUrl: './rectangle-list.component.html',
     styleUrl: './rectangle-list.component.css',
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+    imports: [RouterLink]
 })
 export class RectangleListComponent implements OnInit {
 
