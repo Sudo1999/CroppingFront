@@ -5,5 +5,7 @@
 <h1 style="margin:auto; text-align:center;">{{ title }}</h1>
 
 <app-accueil></app-accueil>
+<!-- accueil.component.html vient se loger dans cette balise <app-accueil></app-accueil> -->
 
 <router-outlet></router-outlet>
+<!-- L'attribut routerLink inséré dans les balises de la page accueil.component.html achemine les requêtes vers le composant correspondant (/api, /cropping, ou /rectangles), pour que le modèle HTML associé au composant soit restitué au nniveau de cette balise <router-outlet></router-outlet> -->

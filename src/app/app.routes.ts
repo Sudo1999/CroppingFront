@@ -16,12 +16,12 @@ export const routes: Routes = [
   {
     path: '',   // => http://localhost:4200/
     redirectTo: 'home',
-    pathMatch: 'full'
-  },   // Important pour que toute l'adresse soit lue
-  {
-    path: 'home',   // La route était commentée, voir plus tard pourquoi
-    component: AccueilComponent
+    pathMatch: 'full'   // Important pour que toute l'adresse soit lue
   },
+  // {
+    // path: 'home',
+    // component: AccueilComponent
+  // },
   {
     path: 'rectangles',
     component: RectangleListComponent
