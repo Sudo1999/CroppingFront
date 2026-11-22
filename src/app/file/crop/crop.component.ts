@@ -1,13 +1,13 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Dimensions, ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
 
 @Component({
-    selector: 'app-crop',
-    templateUrl: './crop.component.html',
-    styleUrl: './crop.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: true,
-    imports: [ImageCropperComponent ]
+  selector: 'app-crop',
+  templateUrl: './crop.component.html',
+  styleUrl: './crop.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: true,
+  imports: [ImageCropperComponent]
 })
 export class CropComponent {
 
@@ -15,7 +15,7 @@ export class CropComponent {
   public croppedImage: any = '';
   public showCropper = false;
   public loading = false;
-  
+
   //  ====  Crop Image Before Upload.docx  ====
 
   fileChangeEvent(event: any): void {
