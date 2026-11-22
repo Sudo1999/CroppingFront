@@ -2,7 +2,7 @@ import { Frame } from "./frame";
 import { Rectangle } from "./rectangle";
 
 /*  ng g class cutout */
-export class Cutout extends Rectangle{
+export class Cutout extends Rectangle {
 
   origin!: Frame;
   override upX: number = 0;

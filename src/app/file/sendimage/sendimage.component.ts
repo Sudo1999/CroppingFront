@@ -1,37 +1,38 @@
-import { Component, VERSION, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpRequest, HttpResponse, HttpEventType } from '@angular/common/http';
-import { FormsModule, FormBuilder, ReactiveFormsModule, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { FileItem, FileUploader, FileUploadModule } from 'ng2-file-upload';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 import { ToastrService } from '@iqx-limited/ngx-toastr';
+import { FileUploader, FileUploadModule } from 'ng2-file-upload';
+
 import { FrameService } from '../../services/frame.service';
 
 @Component({
-    /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
-    /* template: `
-    <div class="container">
-      <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($any($event.target).files)" />
-      <p> Upload Percent : {{ percentDone }}% </p>
-      <br />
-      <ng-container *ngIf="uploadSuccess" class="success">
-        <p class="success">Upload Successful</p>
-      </ng-container>
-    </div>
-    `, */
-    selector: 'app-sendimage',    
-    templateUrl: './sendimage.component.html',
-    styleUrl: './sendimage.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: true,
-    imports: [
-      CommonModule,
-      FormsModule,
-      ReactiveFormsModule,
-      MatButtonModule,
-      FileUploadModule
-    ]
+  /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */
+  /* template: `
+  <div class="container">
+    <input type="file" accept=".jpg,.png" class="button" (change)="uploadImage($any($event.target).files)" />
+    <p> Upload Percent : {{ percentDone }}% </p>
+    <br />
+    <ng-container *ngIf="uploadSuccess" class="success">
+      <p class="success">Upload Successful</p>
+    </ng-container>
+  </div>
+  `, */
+  selector: 'app-sendimage',
+  templateUrl: './sendimage.component.html',
+  styleUrl: './sendimage.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    FileUploadModule
+  ]
 })
 export class SendimageComponent implements OnInit {
 
@@ -42,14 +43,14 @@ export class SendimageComponent implements OnInit {
   //public imageForm!: FormGroup;
   //public uploadUrl = 'http://localhost:8080/api/upload'; // <-- Mon URL d'upload (A vérifier)
 
-  constructor(    
+  constructor(
     //private http: HttpClient,
     private formBuilder: FormBuilder,
     private frameService: FrameService,
     private toastr: ToastrService
-  ) { 
-      this.imageForm = this.formBuilder.group({});
-    }
+  ) {
+    this.imageForm = this.formBuilder.group({});
+  }
 
   ngOnInit(): void {
 
@@ -63,45 +64,45 @@ export class SendimageComponent implements OnInit {
   }
 
   // ---> Nouvelles méthodes pour remplacer ng2-file-upload <--- //
-/* 
-  onDragOver(event: DragEvent): void {
-    event.preventDefault();
-    event.stopPropagation();
-    this.hasBaseDropZoneOver = true;
-  }
-
-  onDragLeave(event: DragEvent): void {
-    event.preventDefault();
-    event.stopPropagation();
-    this.hasBaseDropZoneOver = false;
-  }
-
-  onDrop(event: DragEvent): void {
-    event.preventDefault();
-    event.stopPropagation();
-    this.hasBaseDropZoneOver = false;
-
-    const files = event.dataTransfer?.files;
-    if (files && files.length > 0) {
-      Array.from(files).forEach(file => this.uploadFile(file));
+  /* 
+    onDragOver(event: DragEvent): void {
+      event.preventDefault();
+      event.stopPropagation();
+      this.hasBaseDropZoneOver = true;
     }
-  }
-
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      Array.from(input.files).forEach(file => this.uploadFile(file));
+  
+    onDragLeave(event: DragEvent): void {
+      event.preventDefault();
+      event.stopPropagation();
+      this.hasBaseDropZoneOver = false;
     }
-  }
-
-  uploadFile(file: File): void {
-    const formData = new FormData();
-    formData.append('file', file, file.name);
-    this.http.post(this.uploadUrl, formData).subscribe({
-      next: (response) => console.log('Fichier envoyé avec succès', response),
-      error: (err) => console.error('Erreur lors de l\'envoi', err)
-    });
-  } */
+  
+    onDrop(event: DragEvent): void {
+      event.preventDefault();
+      event.stopPropagation();
+      this.hasBaseDropZoneOver = false;
+  
+      const files = event.dataTransfer?.files;
+      if (files && files.length > 0) {
+        Array.from(files).forEach(file => this.uploadFile(file));
+      }
+    }
+  
+    onFileSelected(event: Event): void {
+      const input = event.target as HTMLInputElement;
+      if (input.files && input.files.length > 0) {
+        Array.from(input.files).forEach(file => this.uploadFile(file));
+      }
+    }
+  
+    uploadFile(file: File): void {
+      const formData = new FormData();
+      formData.append('file', file, file.name);
+      this.http.post(this.uploadUrl, formData).subscribe({
+        next: (response) => console.log('Fichier envoyé avec succès', response),
+        error: (err) => console.error('Erreur lors de l\'envoi', err)
+      });
+    } */
 
   //  ====  Télécharger une image en Angular.docx  ====
   // Voir aussi https://stackblitz.com/edit/angular-file-upload-gcbfhf?file=app/app.component.ts
@@ -111,7 +112,7 @@ export class SendimageComponent implements OnInit {
   uploadImage(files: File[]) {
     //this.frameService.basicUploadImage(files);
     this.frameService.uploadImageAndProgress(files);
-  //uploadImage(file: File) {
+    //uploadImage(file: File) {
     //this.frameService.basicUploadSingleImage(file);
     //this.frameService.uploadSingleImageAndProgress(file);
   }

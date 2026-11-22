@@ -1,8 +1,9 @@
 /* ng g service rectangle */
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Rectangle } from '../framecutout/rectangle';
 import { Observable } from 'rxjs';
+
+import { Rectangle } from '../framecutout/rectangle';
 
 @Injectable({
   providedIn: 'root'

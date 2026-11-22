@@ -1,15 +1,16 @@
 // cutout.component.ts
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { CutoutService } from './cutout.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
 import { Cutout } from '../cutout';
+import { CutoutService } from './cutout.service';
 
 @Component({
-    selector: 'app-cutout',
-    templateUrl: './cutout.component.html',
-    styleUrls: ['./cutout.component.css'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: true,
-    imports: []
+  selector: 'app-cutout',
+  templateUrl: './cutout.component.html',
+  styleUrls: ['./cutout.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: true,
+  imports: []
 })
 export class CutoutComponent {
 
@@ -19,7 +20,7 @@ export class CutoutComponent {
   public cutout!: Cutout;
   public processedCutout!: Blob;
 
-  constructor(private cutoutService: CutoutService) {}
+  constructor(private cutoutService: CutoutService) { }
   //constructor(private frameService: FrameService) {}
 
   fileChange(event: any) {
@@ -29,12 +30,14 @@ export class CutoutComponent {
   processCutout() {
     this.cutoutService.process(this.file, this.cutout).subscribe(
       (data: Blob) => {
-        this.processedCutout = data; },
+        this.processedCutout = data;
+      },
       error => {
-        console.error('Error processing cutout', error); }
+        console.error('Error processing cutout', error);
+      }
     );
   }
 
-  getCutoutUrl() {    
+  getCutoutUrl() {
   }
 }

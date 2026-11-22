@@ -1,19 +1,20 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+
 import { SendfileComponent } from '../../../file/sendfile/sendfile.component';
 import { FrameService } from '../../../services/frame.service';
 import { Frame } from '../../frame';
-import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-frame-list',
-    templateUrl: './frame-list.component.html',
-    styleUrl: './frame-list.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: true,
-    imports: [
-      RouterLink,
-      SendfileComponent
-    ]
+  selector: 'app-frame-list',
+  templateUrl: './frame-list.component.html',
+  styleUrl: './frame-list.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: true,
+  imports: [
+    RouterLink,
+    SendfileComponent
+  ]
 })
 export class FrameListComponent implements OnInit {
 
@@ -21,12 +22,12 @@ export class FrameListComponent implements OnInit {
   public framepaths: String[];
   public fileUrl!: string;
 
-  constructor (
+  constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private frameService: FrameService ) {
-      this.frames = new Array<Frame>;
-      this.framepaths = new Array<String>;
+    private frameService: FrameService) {
+    this.frames = new Array<Frame>;
+    this.framepaths = new Array<String>;
   }
 
   ngOnInit(): void {
