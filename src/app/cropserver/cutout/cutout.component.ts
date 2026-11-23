@@ -1,8 +1,8 @@
 // cutout.component.ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CutoutService } from '../services/cutout.service';
 import { Cutout } from './cutout';
+import { CutoutService } from './cutout.service';
 
 @Component({
   selector: 'app-cutout',
