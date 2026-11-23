@@ -4,13 +4,12 @@
 //import { FileuploaderComponent } from './file/fileuploader/fileuploader.component';
 import { Routes } from '@angular/router';
 
-import { AccueilComponent } from './accueil/accueil.component';
-import { CropComponent } from './file/crop/crop.component';
-import { SendimageComponent } from './file/sendimage/sendimage.component';
-import { FrameGetComponent } from './framecutout/frame/frame-get/frame-get.component';
-import { FrameListComponent } from './framecutout/frame/frame-list/frame-list.component';
-import { RectangleFormComponent } from './framecutout/rectangle/rectangle-form/rectangle-form.component';
-import { RectangleListComponent } from './framecutout/rectangle/rectangle-list/rectangle-list.component';
+import { CropComponent } from './cropclient/crop/crop.component';
+import { SendimageComponent } from './cropclient/sendimage/sendimage.component';
+import { FrameGetComponent } from './cropserver/frame/frame-get/frame-get.component';
+import { FrameListComponent } from './cropserver/frame/frame-list/frame-list.component';
+import { RectangleFormComponent } from './cropserver/rectangle/rectangle-form/rectangle-form.component';
+import { RectangleListComponent } from './cropserver/rectangle/rectangle-list/rectangle-list.component';
 
 export const routes: Routes = [
   {
@@ -23,14 +22,6 @@ export const routes: Routes = [
     // component: AccueilComponent
   // },
   {
-    path: 'rectangles',
-    component: RectangleListComponent
-  },
-  {
-    path: 'addrectangle',
-    component: RectangleFormComponent
-  },
-  {
     path: 'api',
     component: FrameListComponent
   },
@@ -41,6 +32,14 @@ export const routes: Routes = [
   {
     path: 'cropping',
     component: CropComponent
+  },
+  {
+    path: 'rectangles',
+    component: RectangleListComponent
+  },
+  {
+    path: 'addrectangle',
+    component: RectangleFormComponent
   },
   {
     path: 'imageupload',

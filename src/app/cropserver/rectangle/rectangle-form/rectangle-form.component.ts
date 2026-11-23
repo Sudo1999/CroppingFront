@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { RectangleService } from '../../../services/rectangle.service';
-import { Rectangle } from '../../rectangle';
+import { RectangleService } from '../../services/rectangle.service';
+import { Rectangle } from '../rectangle';
 
 @Component({
   selector: 'app-rectangle-form',

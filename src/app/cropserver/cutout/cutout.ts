@@ -1,5 +1,5 @@
-import { Frame } from "./frame";
-import { Rectangle } from "./rectangle";
+import { Frame } from "../frame/frame";
+import { Rectangle } from "../rectangle/rectangle";
 
 /*  ng g class cutout */
 export class Cutout extends Rectangle {

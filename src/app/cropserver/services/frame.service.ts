@@ -1,12 +1,9 @@
 /* ng g service frame */
-import { Component, VERSION, OnInit, Injectable } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpRequest, HttpResponse, HttpEventType, HttpHeaders } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, map, take } from 'rxjs';
-import { Frame } from '../framecutout/frame';
-import { ResourceLoader } from '@angular/compiler';
-import { Cutout } from '../framecutout/cutout';
+import { Frame } from '../frame/frame';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,8 @@
 /* ng g component rectangleList */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-import { RectangleService } from '../../../services/rectangle.service';
-import { Rectangle } from '../../rectangle';
+import { RectangleService } from '../../services/rectangle.service';
+import { Rectangle } from '../rectangle';
 
 @Component({
   selector: 'app-rectangle-list',
