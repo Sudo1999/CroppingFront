@@ -1,11 +1,9 @@
 //import { Routes } from '@angular/core';
 //import { RouterModule, Routes } from '@angular/router';
-//import { AppComponent } from './app.component';
-//import { FileuploaderComponent } from './file/fileuploader/fileuploader.component';
 import { Routes } from '@angular/router';
-
 import { CropComponent } from './cropclient/crop/crop.component';
 import { SendimageComponent } from './cropclient/sendimage/sendimage.component';
+import { CutoutComponent } from './cropserver/cutout/cutout.component';
 import { FrameGetComponent } from './cropserver/frame/frame-get/frame-get.component';
 import { FrameListComponent } from './cropserver/frame/frame-list/frame-list.component';
 import { RectangleFormComponent } from './cropserver/rectangle/rectangle-form/rectangle-form.component';
@@ -32,6 +30,10 @@ export const routes: Routes = [
   {
     path: 'cropping',
     component: CropComponent
+  },
+  {
+    path: 'cutout',
+    component: CutoutComponent
   },
   {
     path: 'rectangles',

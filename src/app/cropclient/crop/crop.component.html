@@ -1,47 +1,26 @@
 <!-- <p>crop works!</p> -->
 
-<!-- Upload crop image Springboot Ajax.docx : -->
-
 <div class="container">
-  <form id="upload-file-form">
-    <input id="upload-file-input" type="file" name="uploadfile" accept="*" />
-    <!-- (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadFile method) -->
-  </form>
-</div>
+  <fieldset>
+    <label>
+      <input type="radio" name="radiomode" value="frontonly" [(ngModel)]="cropmode">
+      Recadrer l'image et la télécharger
+    </label>
+    <br />
+    <label>
+      <input type="radio" name="radiomode" value="frontback" [(ngModel)]="cropmode">
+      Recadrer l'image et l'enregistrer sur le serveur
+    </label>
+  </fieldset>
+  <br />
 
-<script>
-  // bind the on-change event
-  $(document).ready(function() {
-  $("#upload-file-input").on("change", uploadFile);
-  });
-  // Upload the file sending it via Ajax at the Spring Boot server.
-  function uploadFile() {
-  $.ajax({
-  url: "/uploadFile",
-  type: "POST",
-  data: new FormData($("#upload-file-form")[0]),
-  enctype: 'multipart/form-data',
-  processData: false,
-  contentType: false,
-  cache: false,
-  success: function () {
-  // Handle upload success
-  // ...
-  },
-  error: function () {
-  // Handle upload error
-  // ...
-}
-});
-}
-</script>
+  <!-- Crop Image Before Upload.docx (Recadrer l'image et la télécharger) -->
 
-<!-- Crop Image Before Upload.docx : -->
-
-@if (false) {
+  @if (cropmode()==="frontonly") {
   <div class="card-body">
     <input type="file" (change)="fileChangeEvent($event)" />
     <div class="row" style="margin-top: 15px;">
+
       <div class="text-center col-md-8">
         <h5>Image</h5>
         <image-cropper style="margin: auto; width: 40%; height: 40%;"
@@ -57,9 +36,53 @@
           (loadImageFailed)="loadImageFailed()">
         </image-cropper>
       </div>
+
       <div class="text-center col-md-4">
         <img [src]="croppedImage" />
       </div>
+
     </div>
   </div>
-}
+  }
+
+  <!-- Upload crop image Springboot Ajax.docx (Recadrer l'image et l'enregistrer sur le serveur) -->
+
+  @else if (cropmode()==="frontback") {
+
+  <form id="upload-file-form">
+    <input id="upload-file-input" type="file" name="uploadfile" accept="*" />
+    <!-- <input type="file"> génère automatiquement le texte « Choisir un fichier » -->
+    <!-- (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadFile method) -->
+  </form>
+
+  <script>
+    // bind the on-change event
+    $(document).ready(function () {
+      $("#upload-file-input").on("change", uploadFile);
+    });
+    // Upload the file sending it via Ajax at the Spring Boot server.
+    // Côté Front-end, la requête $.ajax envoie les données du formulaire (FormData) en multipart/form-data
+    //  vers l'adresse /uploadFile du Back-end.
+    function uploadFile() {
+      $.ajax({
+        url: "/uploadFile",
+        type: "POST",
+        data: new FormData($("#upload-file-form")[0]),
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function () {
+          // Handle upload success
+          // ...
+        },
+        error: function () {
+          // Handle upload error
+          // ...
+        }
+      });
+    }
+  </script>
+  }
+
+</div>

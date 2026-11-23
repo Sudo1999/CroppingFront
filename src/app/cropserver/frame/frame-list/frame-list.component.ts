@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { SendfileComponent } from '../../../cropclient/sendfile/sendfile.component';
-import { FrameService } from '../../services/frame.service';
 import { Frame } from '../frame';
+import { FrameService } from '../frame.service';
 
 @Component({
   selector: 'app-frame-list',
