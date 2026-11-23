@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
 import { AccueilComponent } from './accueil/accueil.component';
 
 @Component({

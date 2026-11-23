@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-
-import { FrameService } from '../../../services/frame.service';
-import { Frame } from '../../frame';
+import { FrameService } from '../../services/frame.service';
+import { Frame } from '../frame';
 
 @Component({
   selector: 'app-frame-get',

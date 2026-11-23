@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-import { Cutout } from '../cutout';
+import { Cutout } from '../cutout/cutout';
 
 @Injectable({
   providedIn: 'root'
