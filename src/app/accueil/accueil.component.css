@@ -7,3 +7,12 @@
   background-size: cover;
   height: 450px;
 }
+
+.sousligne {
+  width: 20%; 
+}
+
+.sousligne .btn {
+  width: 90%;
+  display: block;
+}
