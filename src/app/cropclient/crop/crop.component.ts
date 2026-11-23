@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Dimensions, ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
 
 @Component({
@@ -7,7 +8,10 @@ import { Dimensions, ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-
   styleUrl: './crop.component.css',
   changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
-  imports: [ImageCropperComponent]
+  imports: [
+    FormsModule,
+    ImageCropperComponent
+  ]
 })
 export class CropComponent {
 
@@ -15,8 +19,10 @@ export class CropComponent {
   public croppedImage: any = '';
   public showCropper = false;
   public loading = false;
+  // Initialisation avec une valeur par défaut (ou '' si rien n'est coché au départ)
+  public cropmode = signal<string>('');
 
-  //  ====  Crop Image Before Upload.docx  ====
+  //  ====  Crop Image Before Upload.docx (Recadrer l'image et la télécharger)  ====
 
   fileChangeEvent(event: any): void {
     this.loading = true;

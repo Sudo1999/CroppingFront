@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "npm: start",
       "type": "npm",
       "script": "start",
       "isBackground": true,
@@ -12,10 +13,10 @@
         "background": {
           "activeOnStart": true,
           "beginsPattern": {
-            "regexp": "(Changes detected|Building)"
+            "regexp": "(Changes detected|Building|Initial chunk files)"
           },
           "endsPattern": {
-            "regexp": "bundle generation (complete|failed)"
+            "regexp": "bundle generation (complete|failed)|Compiled successfully"
           }
         }
       }
