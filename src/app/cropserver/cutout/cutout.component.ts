@@ -30,6 +30,7 @@ export class CutoutComponent {
   processCutout() {
     this.cutoutService.process(this.file, this.cutout).subscribe(
       (data: Blob) => {
+        // Le type 'blob' annonce qu'on attend en retour des octets binaires (l'image résultat), pas du JSON
         this.processedCutout = data;
       },
       error => {
@@ -41,3 +42,15 @@ export class CutoutComponent {
   getCutoutUrl() {
   }
 }
+
+/*
+La transmission : CutoutService.process(file, cutout)
+
+Il construit un FormData multipart avec deux parties :
+
+formData.append('file', file, file.name);
+formData.append('cutout', JSON.stringify(cutout));   // → {"upX":..,"upY":..,"width":..,"height":..}
+return this.http.post(this.apiUrl, formData, { responseType: 'blob' });
+
+Le fichier brut voyage (le back recevra l'image complète, jamais recadrée), et le cutout est l'instruction de découpage exprimée en JSON. Le responseType: 'blob' annonce qu'on attend en retour des octets binaires (l'image résultat), pas du JSON.
+*/

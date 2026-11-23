@@ -1,0 +1,14 @@
+.form-fieldset {
+  margin-left: 50px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espace vertical uniforme entre chaque ligne */
+  width: fit-content;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 100px 150px; /* 100px pour le label, 150px pour l'input */
+  align-items: center;
+}

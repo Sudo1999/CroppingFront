@@ -3,29 +3,34 @@
 
 <!-- ////  ==== Méthode /process ====  //// -->
 
-<div>
-  <input type="file" (change)="fileChange($event)">
-  <div>
-    <label>X:</label>
-    <input type="number" [(ngModel)]="cutout.upX">
+<fieldset class="form-fieldset">
+  <input type="file" (change)="fileChange($event)" />
+
+  <div class="form-row">
+    <label for="upX">X</label>
+    <input id="upX" type="number" [(ngModel)]="cutout.upX" />
   </div>
-  <div>
-    <label>Y:</label>
-    <input type="number" [(ngModel)]="cutout.upY">
+
+  <div class="form-row">
+    <label for="upY">Y</label>
+    <input id="upY" type="number" [(ngModel)]="cutout.upY" />
   </div>
-  <div>
-    <label>Width:</label>
-    <input type="number" [(ngModel)]="cutout.width">
+
+  <div class="form-row">
+    <label for="width">Width</label>
+    <input id="width" type="number" [(ngModel)]="cutout.width" />
   </div>
-  <div>
-    <label>Height:</label>
-    <input type="number" [(ngModel)]="cutout.height">
+
+  <div class="form-row">
+    <label for="height">Height</label>
+    <input id="height" type="number" [(ngModel)]="cutout.height" />
   </div>
+  
   <button (click)="processCutout()">Process cutout</button>
-</div>
+</fieldset>
 
 @if (processedCutout) {
-  <div>
-    <img [src]="getCutoutUrl()" alt="Processed Cutout">
-  </div>
+<div>
+  <img [src]="getCutoutUrl()" alt="Processed Cutout">
+</div>
 }
