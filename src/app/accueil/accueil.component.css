@@ -1,18 +1,29 @@
 
 .bg-image {
-  background-image: url(/src/assets/Ciel-etoiles.jpg);
-  background-color: lightgray;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url(../../assets/Ciel-etoiles.jpg);
   background-size: cover;
-  height: 450px;
+  background-repeat: no-repeat;
+  height: 20%;
 }
 
-.sousligne {
-  width: 20%; 
+.ul {
+  margin: auto; 
+  padding: 0;    /* Supprime le décalage à gauche des listes par défaut */
+  display: flex;    /* Les éléments enfants (li) prennent automatiquement la hauteur du plus grand d'entre eux */
+  justify-content: center;
+  text-align: center;
+  gap: 15%;   /* Crée un espace entre les boutons */
 }
 
-.sousligne .btn {
-  width: 90%;
-  display: block;
+.list-inline-item {
+  width: 20%;
+  margin: 0; 
+}
+
+.list-inline-item .btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;  /* Centre horizontalement */
+  align-items: center;      /* Centre verticalement */
 }

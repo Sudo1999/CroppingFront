@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { ToastrService } from '@iqx-limited/ngx-toastr';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
-import { FrameService } from '../../cropserver/frame/frame.service';
+import { FrameService } from '../../getimage/frame/frame.service';
 
 @Component({
   /* Télécharger une image en Angular.docx => J'envoie le html dans le component.html */

@@ -1,13 +1,13 @@
 //import { Routes } from '@angular/core';
 //import { RouterModule, Routes } from '@angular/router';
 import { Routes } from '@angular/router';
+import { SendimageComponent } from './archive/sendimage/sendimage.component';
 import { CropComponent } from './cropclient/crop/crop.component';
-import { SendimageComponent } from './cropclient/sendimage/sendimage.component';
 import { CutoutComponent } from './cropserver/cutout/cutout.component';
-import { FrameGetComponent } from './cropserver/frame/frame-get/frame-get.component';
-import { FrameListComponent } from './cropserver/frame/frame-list/frame-list.component';
 import { RectangleFormComponent } from './cropserver/rectangle/rectangle-form/rectangle-form.component';
 import { RectangleListComponent } from './cropserver/rectangle/rectangle-list/rectangle-list.component';
+import { FrameGetComponent } from './getimage/frame/frame-get/frame-get.component';
+import { FrameListComponent } from './getimage/frame/frame-list/frame-list.component';
 
 export const routes: Routes = [
   {
@@ -19,14 +19,6 @@ export const routes: Routes = [
     // path: 'home',
     // component: AccueilComponent
   // },
-  {
-    path: 'api',
-    component: FrameListComponent
-  },
-  {
-    path: 'api/file/:fullname',
-    component: FrameGetComponent
-  },
   {
     path: 'cropping',
     component: CropComponent
@@ -42,6 +34,14 @@ export const routes: Routes = [
   {
     path: 'addrectangle',
     component: RectangleFormComponent
+  },
+  {
+    path: 'frame',
+    component: FrameListComponent
+  },
+  {
+    path: 'api/file/:fullname',
+    component: FrameGetComponent
   },
   {
     path: 'imageupload',
