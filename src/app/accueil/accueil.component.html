@@ -2,39 +2,22 @@
 <!-- accueil.component.html va se loger dans la balise <app-accueil></app-accueil> située dans app.component.html -->
 <!-- On arrive ici avec l'adresse http://localhost:4200/ -->
 
-<div class="container">
+<div class="container bg-image">
   <br />
-  <ul style="margin:auto; text-align:center;">
+  <ul class="ul">
 
-    <li class="list-inline-item">   
-      <a routerLink="/cropping" class="btn btn-info btn-sm">Recadrage côté Front</a>
+    <li class="list-inline-item">
+      <a routerLink="/cropping" class="btn btn-info btn-sm">Opération de recadrage</a>
       <!-- Angular uses the routerLink attribute for routing requests through its routing module.
         The module will dispatch a request to the /cropping path to its specific component.
         In each case, the HTML template associated with the matching component will be rendered
         within the <router-outlet></router-outlet> placeholder of the app.component.html. -->
     </li>
 
-    <li class="list-inline-item" style="width: 15%">
+    <li class="list-inline-item">
+      <a routerLink="/frame" class="btn btn-info btn-sm">Images enegistrées</a>
     </li>
-
-    <li routerLink="/cutout" class="list-inline-item">
-      <a class="btn btn-info btn-sm">Recadrage côté Back</a>
-    </li>
-
-    <br /><br />
-
-    <li class="list-inline-item sousligne">
-      <a routerLink="/api" class="btn btn-info btn-sm">Liste des images</a>
-    </li>
-
-    <li class="list-inline-item sousligne">
-      <a routerLink="/rectangles" class="btn btn-info btn-sm">Liste des rectangles</a>
-    </li>
-
+    
   </ul>
   <br />
-
-  <!-- <div class="bg-image">
-    <img src="/src/assets/Ciel-etoiles.jpg" />
-  </div> -->
 </div>

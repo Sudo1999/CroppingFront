@@ -1,4 +1,4 @@
-import { Rectangle } from "../rectangle/rectangle";
+import { Rectangle } from "../../cropserver/rectangle/rectangle";
 
 /* ng g class frame */
 export class Frame extends Rectangle {

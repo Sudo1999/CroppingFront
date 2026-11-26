@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './accueil.component.css',
   changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
-  imports: [RouterLink]
+  imports: [ RouterLink ]
 })
 export class AccueilComponent {
 }

@@ -1,4 +1,4 @@
-import { Frame } from "../frame/frame";
+import { Frame } from "../../getimage/frame/frame";
 import { Rectangle } from "../rectangle/rectangle";
 
 /*  ng g class cutout */
