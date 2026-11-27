@@ -2,12 +2,11 @@
 <!-- accueil.component.html va se loger dans la balise <app-accueil></app-accueil> située dans app.component.html -->
 <!-- On arrive ici avec l'adresse http://localhost:4200/ -->
 
-<div class="container bg-image">
-  <br />
+<div class="container"> <!-- bg-image -->
   <ul class="ul">
 
     <li class="list-inline-item">
-      <a routerLink="/cropping" class="btn btn-info btn-sm">Opération de recadrage</a>
+      <a routerLink="/cropping" class="btn btn-primary">Opération de recadrage</a>
       <!-- Angular uses the routerLink attribute for routing requests through its routing module.
         The module will dispatch a request to the /cropping path to its specific component.
         In each case, the HTML template associated with the matching component will be rendered
@@ -15,9 +14,8 @@
     </li>
 
     <li class="list-inline-item">
-      <a routerLink="/frame" class="btn btn-info btn-sm">Images enegistrées</a>
+      <a routerLink="/frame" class="btn btn-primary">Images enegistrées</a>
     </li>
     
   </ul>
-  <br />
 </div>

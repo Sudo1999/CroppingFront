@@ -3,7 +3,7 @@
   background-image: url(../../assets/Ciel-etoiles.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 20%;
+  height: 15%;
 }
 
 .ul {
@@ -12,7 +12,7 @@
   display: flex;    /* Les éléments enfants (li) prennent automatiquement la hauteur du plus grand d'entre eux */
   justify-content: center;
   text-align: center;
-  gap: 15%;   /* Crée un espace entre les boutons */
+  gap: 25%;   /* Crée un espace entre les boutons */
 }
 
 .list-inline-item {

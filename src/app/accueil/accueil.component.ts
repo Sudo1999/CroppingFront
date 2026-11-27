@@ -10,5 +10,8 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [ RouterLink ]
 })
+
+/* Note : les imports du haut (import { RouterLink } from '@angular/router';) appartiennent à TypeScript (pour la logique et le typage du fichier .ts), alors que ceux du bas (imports: [ RouterLink ]) appartiennent à Angular (pour le rendu du template .html). */
+
 export class AccueilComponent {
 }
