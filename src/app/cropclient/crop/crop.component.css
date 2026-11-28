@@ -1,0 +1,30 @@
+image-cropper {
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-height: 80vh;   /* Viewport Height => Empêche l'image de dépasser 80% de la hauteur de l'écran */
+}
+
+.ligne-formulaire {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-backdrop-custom {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;    /* Produit l'effet pop-up en décrochant le bloc de la page pour le fixer directement par rapport à l'écran */
+  inset: 0;   /* Résume top, right, bottom, left, et étire l'élément sur tout l'écran pour bloquer les clics sur le reste du site */
+  z-index: 1050;    /* Définit l'ordre d'empilement des éléments et place ici l'élément concerné devant les autres */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #fff;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}

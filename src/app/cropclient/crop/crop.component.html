@@ -2,87 +2,91 @@
 
 <div class="container">
   <fieldset>
+    <br />
     <label>
-      <input type="radio" name="radiomode" value="frontonly" [(ngModel)]="cropmode">
+      <input type="radio" name="radiomode" value="frontonly" [(ngModel)]="cropmode" />
       Recadrer l'image et la télécharger
     </label>
     <br />
     <label>
-      <input type="radio" name="radiomode" value="frontback" [(ngModel)]="cropmode">
+      <input type="radio" name="radiomode" value="frontback" [(ngModel)]="cropmode" />
       Recadrer l'image et l'enregistrer sur le serveur
     </label>
   </fieldset>
   <br />
 
-  <!-- Crop Image Before Upload.docx (Recadrer l'image et la télécharger) -->
-
-  @if (cropmode()==="frontonly") {
+  @if (cropmode()==="frontonly" || cropmode()==="frontback") {
   <div class="card-body">
-    <input type="file" (change)="fileChangeEvent($event)" />
-    <div class="row" style="margin-top: 15px;">
 
-      <div class="text-center col-md-8">
-        <h5>Image</h5>
-        <image-cropper style="margin: auto; width: 40%; height: 40%;"
-          [imageChangedEvent]="imageChangedEvent"
-          [maintainAspectRatio]="true"
-          [aspectRatio]="4/ 4"
-          [resizeToWidth]="128"
-          format="png"
-          //output="base64"   // A décommenter en cas d'erreur (L'événement (imageCropped) maj renvoie par défaut un Blob et une objectUrl (event.objectUrl ou event.blob) plutôt que event.base64)
-          (imageLoaded)="imageLoaded()"
+    <div class="ligne-formulaire">
+      <input id="file-input" type="file" (change)="fileChangeEvent($event)" name="uploadfile" accept="image/*" />
+      <!-- <input type="file"> génère automatiquement le texte « Choisir un fichier » -->
+      <!-- (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadfile method) -->
+      <label for="width-input">Taille finale en pixels</label>
+      <input id="width-input" type="number" style="width:80px; min-width:0; flex:none;" value="2560"
+        [(ngModel)]="frameWidth" />
+    </div>
+
+    <div class="ligne-formulaire">
+      <input id="ratio-portrait" type="radio" name="radioforme" (change)="frameRatio = 3/ 4" />
+      <label for="ratio-portrait">Portrait</label>
+      <input id="ratio-paysage" type="radio" name="radioforme" (change)="frameRatio = 3/ 2" checked />
+      <label for="ratio-paysage">Paysage</label>
+      <input id="ratio-carre" type="radio" name="radioforme" (change)="frameRatio = 4/ 4" />
+      <label for="ratio-carre">Carré</label>
+
+      <div class="text-center mt-1">
+        <button type="button" (click)="showPreview.set(true)"> <!-- Bouton de l'aperçu en pop-up -->
+          Voir l'aperçu
+        </button>
+        @if (cropmode()==="frontonly") { <!-- Option du Téléchargement -->
+        <button type="button" (click)="downloadimage()" style="margin-left: 10px;">
+          Télécharger
+        </button>
+        }
+        @if (cropmode()==="frontback") { <!-- Option de l'enregistrement sur le serveur -->
+        <button type="button" (click)="sendtoserver()" style="margin-left: 10px;">
+          Enregistrer sous...
+        </button>
+        }
+        <input id="name-input" type="text" style="margin-left: 10px;" value="ImageRecadree" [(ngModel)]="imagetoloadName" />
+      </div>
+    </div>
+
+    <div class="row mt-3"> <!-- mt = Margin Top, équivalent à style="margin-top: 10px" -->
+      <div class="col-12 d-flex justify-content-center">
+        <!-- d-flex = Display Flex, pour répartir les éléments enfants -->
+        <image-cropper 
+          [imageChangedEvent]="imageChangedEvent" 
+          [maintainAspectRatio]="true" 
+          [aspectRatio]="frameRatio" // Ratio largeur/ hauteur (4/ 4 = un carré parfait) 
+          [resizeToWidth]="frameWidth" // Largeur en pixels 
+          [onlyScaleDown]="true" 
+          [format]="imagetoloadFormat" 
+          //output="base64" // A décommenter en cas d'erreur (L'événement imageCropped renvoie par défaut un Blob et une objectUrl (event.blob et event.objectUrl) plutôt que event.base64) 
+          // Evénements de sortie : 
+          (imageLoaded)="imageLoaded()" 
           (cropperReady)="cropperReady($event)"
-          (imageCropped)="imageCropped($event)"
+          (imageCropped)="imageCropped($event)" // L'objet ImageCroppedEvent contient un Blob pour envoyer l'image à un serveur ou une API (via FormData), une objectUrl temporaire générée par le navigateur et qui pointe vers le Blob pour afficher l'aperçu dans une balise <img [src]="...">, et base64 (si activée). 
           (loadImageFailed)="loadImageFailed()">
         </image-cropper>
       </div>
 
-      <div class="text-center col-md-4">
-        <img [src]="croppedImage" />
+      <!-- Aperçu en pop-up -->
+      @if (showPreview()) {
+      <div class="modal-backdrop-custom">
+        <div class="modal-box" (click)="$event.stopPropagation()">
+          <h5>Aperçu de l'image découpée</h5>
+          <img [src]="croppedImageUrl" alt="Aperçu" class="my-3 border" />
+          <div>
+            <button type="button" class="btn btn-secondary" (click)="showPreview.set(false)">
+              Fermer
+            </button>
+          </div>
+        </div>
       </div>
-
+      }
     </div>
   </div>
   }
-
-  <!-- Upload crop image Springboot Ajax.docx (Recadrer l'image et l'enregistrer sur le serveur) -->
-
-  @else if (cropmode()==="frontback") {
-
-  <form id="upload-file-form">
-    <input id="upload-file-input" type="file" name="uploadfile" accept="*" />
-    <!-- <input type="file"> génère automatiquement le texte « Choisir un fichier » -->
-    <!-- (The input attribute "name" must be the same as the RequestParam in the Spring Boot uploadFile method) -->
-  </form>
-
-  <script>
-    // bind the on-change event
-    $(document).ready(function () {
-      $("#upload-file-input").on("change", uploadFile);
-    });
-    // Upload the file sending it via Ajax at the Spring Boot server.
-    // Côté Front-end, la requête $.ajax envoie les données du formulaire (FormData) en multipart/form-data
-    //  vers l'adresse /uploadFile du Back-end.
-    function uploadFile() {
-      $.ajax({
-        url: "/uploadFile",
-        type: "POST",
-        data: new FormData($("#upload-file-form")[0]),
-        enctype: 'multipart/form-data',
-        processData: false,
-        contentType: false,
-        cache: false,
-        success: function () {
-          // Handle upload success
-          // ...
-        },
-        error: function () {
-          // Handle upload error
-          // ...
-        }
-      });
-    }
-  </script>
-  }
-
 </div>
